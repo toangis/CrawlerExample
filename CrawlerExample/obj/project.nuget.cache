@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YjMjOco6GlBLPsgXr2eifFvydvmhc62v0pioal4Wa+SrJdw1wUVyxv4yXT/n7cCl1Zv8omarie0ukhjKEud7ig==",
+  "dgSpecHash": "sLr7PzZ6w7OlBXJd4pcFT1x0DS0PjSaYesf07JKg40YcLvkKbQkoCccw6q5tSd5W8wpms+4WCgpE2hiGZIil6A==",
   "success": true,
-  "projectFilePath": "E:\\Temp\\Test\\CrawlerExample\\CrawlerExample\\CrawlerExample.csproj",
+  "projectFilePath": "E:\\2023\\Net Core\\NET Core MVC\\CrawlerExample\\CrawlerExample\\CrawlerExample.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\fizzler\\1.2.0\\fizzler.1.2.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\fizzler.systems.htmlagilitypack\\1.2.1\\fizzler.systems.htmlagilitypack.1.2.1.nupkg.sha512",
