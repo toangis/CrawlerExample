@@ -1660,8 +1660,7 @@
     </member>
     <member name="P:System.Messaging.MessageQueue.MulticastAddress">
       <summary>Introduced in MSMQ 3.0. Gets or sets the multicast address associated with the queue.</summary>
-      <returns>A <see cref="T:System.String" /> that contains a valid multicast address (in the form shown below) or null, which indicates that the queue is not associated with a multicast address. Copy Code&lt;address&gt;:&lt;port&gt;
-</returns>
+      <returns>A <see cref="T:System.String" /> that contains a valid multicast address (in the form shown below) or null, which indicates that the queue is not associated with a multicast address. Copy Code&lt;address&gt;:&lt;port&gt;</returns>
       <exception cref="T:System.PlatformNotSupportedException">MSMQ 3.0 is not installed.</exception>
     </member>
     <member name="P:System.Messaging.MessageQueue.Path">
@@ -1873,7 +1872,7 @@
       <param name="timeout">A <see cref="T:System.TimeSpan" /> that indicates the time to wait until a new message is available for inspection. </param>
       <param name="cursor">A <see cref="T:System.Messaging.Cursor" /> that maintains a specific position in the message queue.</param>
       <exception cref="T:System.ArgumentException">The value specified for the <paramref name="timeout" /> parameter is not valid, possibly <paramref name="timeout" /> is less than <see cref="F:System.TimeSpan.Zero" /> or greater than <see cref="F:System.Messaging.MessageQueue.InfiniteTimeout" />. </exception>
-      <exception cref="T:System.Messaging.MessageQueueException">A message did not arrive in the queue before the time-out expired.-or- An error occurred when accessing a Message Queuing method </exception>
+      <exception cref="T:System.Messaging.MessageQueueException">A message did not arrive in the queue before the time-out expired.-or- An error occurred when accessing a Message Queuing method Use this overload to receive a message and return in a specified period of time if there are no messages in the queue.</exception>
     </member>
     <member name="M:System.Messaging.MessageQueue.Receive(System.TimeSpan,System.Messaging.Cursor,System.Messaging.MessageQueueTransaction)">
       <summary>Receives the current message in the queue, using a specified cursor. If no message is available, this method waits until either a message is available, or the time-out expires.</summary>
@@ -2905,8 +2904,7 @@
     </member>
     <member name="P:System.Messaging.MessageQueueInstaller.MulticastAddress">
       <summary>Introduced in MSMQ 3.0. Gets or sets the multicast address associated with the queue.</summary>
-      <returns>A <see cref="T:System.String" /> that contains a valid multicast address (in the form shown below) or null, which indicates that the queue is not associated with a multicast address. Copy Code&lt;address&gt;:&lt;port&gt;
-</returns>
+      <returns>A <see cref="T:System.String" /> that contains a valid multicast address (in the form shown below) or null, which indicates that the queue is not associated with a multicast address. Copy Code&lt;address&gt;:&lt;port&gt;</returns>
       <exception cref="T:System.PlatformNotSupportedException">MSMQ 3.0 is not installed.</exception>
     </member>
     <member name="P:System.Messaging.MessageQueueInstaller.Path">

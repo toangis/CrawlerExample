@@ -68,6 +68,10 @@
       <summary>Specifies the action to be taken when the persistence provider catches an <see cref="T:System.Runtime.Persistence.InstanceLockedException" />.</summary>
       <returns>The action to be taken when the persistence provider catches an <see cref="T:System.Runtime.Persistence.InstanceLockedException" /></returns>
     </member>
+    <member name="P:System.Activities.DurableInstancing.SqlWorkflowInstanceStore.MaxConnectionRetries">
+      <summary>Gets or sets the maximum number of SQL connection retries.  The default value is 4.</summary>
+      <returns>An integer representing the maximum number of SQL connection retries.</returns>
+    </member>
     <member name="M:System.Activities.DurableInstancing.SqlWorkflowInstanceStore.Promote(System.String,System.Collections.Generic.IEnumerable{System.Xml.Linq.XName},System.Collections.Generic.IEnumerable{System.Xml.Linq.XName})">
       <summary>Associates the specified properties with a workflow instance so that you can query for instances based on specific values for these properties. These properties that can be used in external queries can be of simple types (for example: Int64, String, and so on) or of a serialized binary type (byte[]). Binary properties are typically used to store tracking data.</summary>
       <param name="name">The name of the promotion itself.</param>

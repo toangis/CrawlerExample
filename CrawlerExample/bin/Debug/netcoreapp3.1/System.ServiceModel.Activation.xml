@@ -30,7 +30,7 @@
       <summary>Provides transport-specific configuration for transport implementations hosted in Windows Process Activation Service (WAS).</summary>
     </member>
     <member name="M:System.ServiceModel.Activation.HostedTransportConfiguration.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activation.HostedTransportConfiguration" /> class. </summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activation.HostedTransportConfiguration" /> class.  </summary>
     </member>
     <member name="M:System.ServiceModel.Activation.HostedTransportConfiguration.GetBaseAddresses(System.String)">
       <summary>When overridden in a derived class, retrieves the base address of the host.</summary>
@@ -47,7 +47,7 @@
       <summary>Defines a set of properties and methods for generating source code within the ASP.NET build environment. This class is the  implementation of <see cref="T:System.Web.Compilation.BuildProvider" />.</summary>
     </member>
     <member name="M:System.ServiceModel.Activation.ServiceBuildProvider.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activation.ServiceBuildProvider" /> class.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activation.ServiceBuildProvider" /> class. </summary>
     </member>
     <member name="P:System.ServiceModel.Activation.ServiceBuildProvider.CodeCompilerType">
       <summary>Represents the compiler type used by a build provider to generate source code for a custom file type.</summary>
@@ -72,10 +72,10 @@
       <returns>The virtual paths that this instance of the build provider is dependent on.</returns>
     </member>
     <member name="T:System.ServiceModel.Activation.ServiceHostFactory">
-      <summary>Factory that provides instances of <see cref="T:System.ServiceModel.ServiceHost" /> in managed hosting environments where the host instance is created dynamically in response to incoming messages.</summary>
+      <summary>Factory that provides instances of <see cref="T:System.ServiceModel.ServiceHost" /> in managed hosting environments where the host instance is created dynamically in response to incoming messages. A new <see cref="T:System.ServiceModel.Activation.ServiceHostFactory" /> is created for each service hosted.</summary>
     </member>
     <member name="M:System.ServiceModel.Activation.ServiceHostFactory.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activation.ServiceHostFactory" /> class. </summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activation.ServiceHostFactory" /> class.  </summary>
     </member>
     <member name="M:System.ServiceModel.Activation.ServiceHostFactory.CreateServiceHost(System.String,System.Uri[])">
       <summary>Creates a <see cref="T:System.ServiceModel.ServiceHost" /> with specific base addresses and initializes it with specified data.</summary>
@@ -93,19 +93,19 @@
       <param name="baseAddresses">The <see cref="T:System.Array" /> of type <see cref="T:System.Uri" /> that contains the base addresses for the service hosted.</param>
     </member>
     <member name="T:System.ServiceModel.Activation.ServiceRoute">
-      <summary>Enables the creation of service routes over HTTP in support of REST scenarios.</summary>
+      <summary>Enables the creation of service routes over HTTP for WCF Services with support for extension-less base addresses. </summary>
     </member>
     <member name="M:System.ServiceModel.Activation.ServiceRoute.#ctor(System.String,System.ServiceModel.Activation.ServiceHostFactoryBase,System.Type)">
       <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activation.ServiceRoute" /> class with the specified route prefix, service host factory, and service type.</summary>
       <param name="routePrefix">The route prefix.</param>
-      <param name="serviceHostFactory">An instance of the <see cref="T:System.ServiceModel.Activation.ServiceHostFactory" /> class.</param>
+      <param name="serviceHostFactory">An instance of the <see cref="T:System.ServiceModel.Activation.ServiceHostFactory" /> class. </param>
       <param name="serviceType">The service type.</param>
     </member>
     <member name="T:System.ServiceModel.Activities.Activation.WorkflowServiceHostFactory">
-      <summary>A factory that provides instances of <see cref="T:System.ServiceModel.Activities.WorkflowServiceHost" /> in managed hosting environments where the host instance is created dynamically in response to incoming messages.</summary>
+      <summary>A factory that provides instances of <see cref="T:System.ServiceModel.Activities.WorkflowServiceHost" /> in managed hosting environments where the host instance is created dynamically in response to incoming messages. </summary>
     </member>
     <member name="M:System.ServiceModel.Activities.Activation.WorkflowServiceHostFactory.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.Activation.WorkflowServiceHostFactory" /> class. </summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.Activation.WorkflowServiceHostFactory" /> class.  </summary>
     </member>
     <member name="M:System.ServiceModel.Activities.Activation.WorkflowServiceHostFactory.CreateServiceHost(System.String,System.Uri[])">
       <summary>Creates a new service host. </summary>

@@ -306,6 +306,7 @@
       <exception cref="T:System.ArgumentNullException">When<paramref name=" asyncResult" /> is null.</exception>
       <exception cref="T:System.ArgumentException">When<paramref name=" asyncResult" /> did not originate from this <see cref="T:System.Data.Services.Client.DataServiceContext" /> instance. -or- When the <see cref="M:System.Data.Services.Client.DataServiceContext.EndExecute``1(System.IAsyncResult)" /> method was previously called.</exception>
       <exception cref="T:System.InvalidOperationException">When an error is raised either during execution of the request or when it converts the contents of the response message into objects.</exception>
+      <exception cref="T:System.Data.Services.Client.DataServiceQueryException">When the data service returns an HTTP 404: Resource Not Found error.</exception>
     </member>
     <member name="M:System.Data.Services.Client.DataServiceContext.EndExecuteBatch(System.IAsyncResult)">
       <summary>Called to complete the <see cref="M:System.Data.Services.Client.DataServiceContext.BeginExecuteBatch(System.AsyncCallback,System.Object,System.Data.Services.Client.DataServiceRequest[])" />.</summary>
@@ -336,6 +337,7 @@
       <returns>The response that contains the next page of data in the query result.</returns>
       <param name="continuation">A <see cref="T:System.Data.Services.Client.DataServiceQueryContinuation`1" /> object that represents the next page of data to return from the data service.</param>
       <typeparam name="T">The type returned by the query.</typeparam>
+      <exception cref="T:System.Data.Services.Client.DataServiceQueryException">When the data service returns an HTTP 404: Resource Not Found error.</exception>
     </member>
     <member name="M:System.Data.Services.Client.DataServiceContext.Execute``1(System.Uri)">
       <summary>Sends a request to the data service to execute a specific URI.</summary>
@@ -346,6 +348,7 @@
       <exception cref="T:System.ArgumentNullException">When <paramref name="requestUri" /> is null.</exception>
       <exception cref="T:System.ArgumentException">When <paramref name="requestUri" /> is not a valid URI for the data service.</exception>
       <exception cref="T:System.InvalidOperationException">When an error is raised either during execution of the request or when it converts the contents of the response message into objects.</exception>
+      <exception cref="T:System.Data.Services.Client.DataServiceQueryException">When the data service returns an HTTP 404: Resource Not Found error.</exception>
     </member>
     <member name="M:System.Data.Services.Client.DataServiceContext.ExecuteBatch(System.Data.Services.Client.DataServiceRequest[])">
       <summary>Submits a group of queries as a batch to the data service.</summary>
@@ -502,8 +505,8 @@
       <exception cref="T:System.ArgumentException">The <paramref name="entity" /> is not being tracked by this <see cref="T:System.Data.Services.Client.DataServiceContext" /> instance. -or-The entity has the <see cref="T:System.Data.Services.Client.MediaEntryAttribute" /> applied. </exception>
     </member>
     <member name="P:System.Data.Services.Client.DataServiceContext.Timeout">
-      <summary>Gets or sets the time-out option that is used for the underlying HTTP request to the data service.</summary>
-      <returns>An integer that indicates the time interval before time-out of a service request.</returns>
+      <summary>Gets or sets the time-out option (in seconds) that is used for the underlying HTTP request to the data service.</summary>
+      <returns>An integer that indicates the time interval (in seconds) before time-out of a service request.</returns>
     </member>
     <member name="M:System.Data.Services.Client.DataServiceContext.TryGetEntity``1(System.Uri,``0@)">
       <summary>Test retrieval of an entity being tracked by the <see cref="T:System.Data.Services.Client.DataServiceContext" /> by reference to the URI of the entity.</summary>
@@ -550,10 +553,12 @@
       <summary>Called to complete the asynchronous operation of executing a data service query.</summary>
       <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1" /> that contains the results of the query operation.</returns>
       <param name="asyncResult">The result from the <see cref="M:System.Data.Services.Client.DataServiceQuery.BeginExecute(System.AsyncCallback,System.Object)" /> operation that contains the query results.</param>
+      <exception cref="T:System.Data.Services.Client.DataServiceQueryException">When the data service returns an HTTP 404: Resource Not Found error.</exception>
     </member>
     <member name="M:System.Data.Services.Client.DataServiceQuery.Execute">
       <summary>Executes the query against the data service.</summary>
       <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1" /> that contains the results of the query operation.</returns>
+      <exception cref="T:System.Data.Services.Client.DataServiceQueryException">When the data service returns an HTTP 404: Resource Not Found error.</exception>
     </member>
     <member name="P:System.Data.Services.Client.DataServiceQuery.Expression">
       <summary>Represents an expression that contains the query to the data service.</summary>
@@ -591,10 +596,12 @@
       <summary>Ends an asynchronous query request to a data service.</summary>
       <returns>Returns an <see cref="T:System.Collections.Generic.IEnumerable`1" />  that contains the results of the query operation.</returns>
       <param name="asyncResult">The pending asynchronous query request.</param>
+      <exception cref="T:System.Data.Services.Client.DataServiceQueryException">When the data service returns an HTTP 404: Resource Not Found error.</exception>
     </member>
     <member name="M:System.Data.Services.Client.DataServiceQuery`1.Execute">
       <summary>Executes the query and returns the results as a collection that implements IEnumerable.</summary>
       <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1" /> in which <paramref name="T" /> represents the type of the query results.</returns>
+      <exception cref="T:System.Data.Services.Client.DataServiceQueryException">When the data service returns an HTTP 404: Resource Not Found error.</exception>
     </member>
     <member name="M:System.Data.Services.Client.DataServiceQuery`1.Expand(System.String)">
       <summary>Creates a new <see cref="T:System.Data.Services.Client.DataServiceQuery`1" /> with the expand option set in the URI generated by the returned query.</summary>
@@ -792,7 +799,7 @@
     <member name="P:System.Data.Services.Client.DataServiceStreamResponse.Stream">
       <summary>Gets the binary property data from the data service as a binary stream. </summary>
       <returns>The stream that contains the binary property data.</returns>
-      <exception cref="T:System.ObjectExposedException">When the <see cref="T:System.Data.Services.Client.DataServiceStreamResponse" /> is already disposed.</exception>
+      <exception cref="T:System.ObjectDisposedException">When the <see cref="T:System.Data.Services.Client.DataServiceStreamResponse" /> is already disposed.</exception>
     </member>
     <member name="T:System.Data.Services.Client.Descriptor">
       <summary>Abstract class from which <see cref="T:System.Data.Services.Client.EntityDescriptor" /> is derived.</summary>
@@ -907,8 +914,8 @@
       <returns>A string that is the name of the data type.</returns>
     </member>
     <member name="P:System.Data.Services.Client.EntityDescriptor.StreamETag">
-      <summary>Gets an eTag value that indicates the state of the Media Resource targeted for update since the last call to <see cref="M:System.Data.Services.Client.DataServiceContext.SaveChanges" /> when the entity is a Media Link Entry.</summary>
-      <returns>A string value that indicates the state of data. </returns>
+      <summary>Gets the eTag for the media resource associated with an entity that is a media link entry.</summary>
+      <returns>A string value that indicates the state of data.</returns>
     </member>
     <member name="T:System.Data.Services.Client.EntityStates">
       <summary>Represents the enumeration that identifies the state of an entity being tracked by the <see cref="T:System.Data.Services.Client.DataServiceContext" />.  </summary>
@@ -1077,7 +1084,7 @@
       <summary>Pending changes are saved by using multiple requests to the server, and the operation continues after an error occurs.</summary>
     </member>
     <member name="F:System.Data.Services.Client.SaveChangesOptions.ReplaceOnUpdate">
-      <summary>Pending updates are made by replacing all values of the entity in the data source with values from the updated entity. </summary>
+      <summary>Pending updates are made by replacing all values of the entity in the data source with values from the updated entity (HTTP PUT) instead of just updating changed values (HTTP MERGE), which is the default behavior. </summary>
     </member>
     <member name="T:System.Data.Services.Client.SendingRequestEventArgs">
       <summary>Used with the <see cref="E:System.Data.Services.Client.DataServiceContext.SendingRequest" /> event to provide access to the <see cref="T:System.Net.HttpWebRequest" /> instance that the client is about to send to the target data service. </summary>
@@ -1122,13 +1129,13 @@
       <returns>String value that contains names of key attributes. </returns>
     </member>
     <member name="T:System.Data.Services.Common.DataServiceProtocolVersion">
-      <summary>Represents the versions of the Atom Publishing (AtomPub) protocol that the data service may support. </summary>
+      <summary>Represents the versions of the Open Data Protocol (OData) that the data service may support. </summary>
     </member>
     <member name="F:System.Data.Services.Common.DataServiceProtocolVersion.V1">
-      <summary>Version 1 of the AtomPub protocol.</summary>
+      <summary>Version 1 of the OData protocol.</summary>
     </member>
     <member name="F:System.Data.Services.Common.DataServiceProtocolVersion.V2">
-      <summary>Version 2 of the AtomPub protocol.</summary>
+      <summary>Version 2 of the OData protocol.</summary>
     </member>
     <member name="T:System.Data.Services.Common.EntityPropertyMappingAttribute">
       <summary>Attribute that specifies a custom mapping between properties of an entity type and elements of an entry in a feed returned by WCF Data Services. </summary>

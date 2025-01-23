@@ -775,18 +775,25 @@
       <returns>A <see cref="T:System.Web.Services.Description.BasicProfileViolation" /> object representing the current element in the <see cref="T:System.Web.Services.Description.BasicProfileViolationCollection" />.</returns>
     </member>
     <member name="M:System.Web.Services.Description.BasicProfileViolationEnumerator.Dispose">
-      <summary>Releases all resources used by the <see cref="T:System.Web.Services.Description.BasicProfileViolationEnumerator" />. </summary>
+      <summary>Releases all resources used by the current instance of the <see cref="T:System.Web.Services.Description.BasicProfileViolationEnumerator" /> class.Releases all resources used by the <see cref="T:System.Web.Services.Description.BasicProfileViolationEnumerator" />. </summary>
     </member>
     <member name="M:System.Web.Services.Description.BasicProfileViolationEnumerator.MoveNext">
       <summary>Enumerates to the next element in the <see cref="T:System.Web.Services.Description.BasicProfileViolationCollection" />.</summary>
       <returns>false if the end of the collection is reached; otherwise true.</returns>
     </member>
-    <member name="P:System.Web.Services.Description.BasicProfileViolationEnumerator.System#Collections#IEnumerator#Current"></member>
-    <member name="M:System.Web.Services.Description.BasicProfileViolationEnumerator.System#Collections#IEnumerator#Reset"></member>
+    <member name="P:System.Web.Services.Description.BasicProfileViolationEnumerator.System#Collections#IEnumerator#Current">
+      <summary>Gets the current element in the <see cref="T:System.Web.Services.Description.BasicProfileViolationCollection" />. </summary>
+      <returns>The current element in the collection.</returns>
+    </member>
+    <member name="M:System.Web.Services.Description.BasicProfileViolationEnumerator.System#Collections#IEnumerator#Reset">
+      <summary>Sets the enumerator to its initial position, which is before the first element in the <see cref="T:System.Web.Services.Description.BasicProfileViolationCollection" />.</summary>
+    </member>
     <member name="T:System.Web.Services.Description.Binding">
       <summary>Specifies the concrete data format and protocols used in the XML Web service. This class cannot be inherited.</summary>
     </member>
-    <member name="M:System.Web.Services.Description.Binding.#ctor"></member>
+    <member name="M:System.Web.Services.Description.Binding.#ctor">
+      <summary>Creates an instance of the <see cref="T:System.Web.Services.Description.Binding" /> class.</summary>
+    </member>
     <member name="P:System.Web.Services.Description.Binding.Extensions">
       <summary>Gets the collection of extensibility elements used in the XML Web service.</summary>
       <returns>Returns a <see cref="T:System.Web.Services.Description.ServiceDescriptionFormatExtensionCollection" />.</returns>
@@ -1819,6 +1826,7 @@
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.AbstractSchemas">
       <summary>Gets the abstract XML schemas used by the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionImporter" /> instance.</summary>
+      <returns>The abstract XML schemas used by the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionImporter" /> instance</returns>
     </member>
     <member name="M:System.Web.Services.Description.ProtocolImporter.AddExtensionWarningComments(System.CodeDom.CodeCommentStatementCollection,System.Web.Services.Description.ServiceDescriptionFormatExtensionCollection)">
       <summary>For each unhandled extension or XML element in the input extensions collection, turns on a <see cref="F:System.Web.Services.Description.ServiceDescriptionImportWarnings.RequiredExtensionsIgnored" /> or <see cref="F:System.Web.Services.Description.ServiceDescriptionImportWarnings.OptionalExtensionsIgnored" /> warning for each unhandled extension or XML element in the input extensions collection. </summary>
@@ -1827,27 +1835,34 @@
     </member>
     <member name="M:System.Web.Services.Description.ProtocolImporter.BeginClass">
       <summary>When overridden in a derived class, initializes the generation of a binding class.</summary>
+      <returns>The generated class.</returns>
     </member>
     <member name="M:System.Web.Services.Description.ProtocolImporter.BeginNamespace">
       <summary>When overridden in a derived class, performs namespace-wide initialization during code generation.</summary>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.Binding">
       <summary>Gets the Web Services Description Language (WSDL) binding that the protocol importer is currently processing to generate a class.</summary>
+      <returns>The Web Services Description Language (WSDL) binding that the protocol importer is currently processing to generate a class.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.ClassName">
       <summary>Gets the name of the binding class that is currently being generated.</summary>
+      <returns>The name of the binding class that is currently being generated.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.ClassNames">
       <summary>Gets the <see cref="T:System.Xml.Serialization.CodeIdentifiers" /> object that generates a unique name for the binding class that is currently being generated.</summary>
+      <returns>The <see cref="T:System.Xml.Serialization.CodeIdentifiers" /> object that generates a unique name for the binding class that is currently being generated.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.CodeNamespace">
       <summary>Gets a representation of the .NET Framework namespace of the binding classes that are being generated.</summary>
+      <returns>A representation of the .NET Framework namespace of the binding classes that are being generated.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.CodeTypeDeclaration">
       <summary>Gets a representation of the binding class that is currently being generated.</summary>
+      <returns>A representation of the binding class that is currently being generated.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.ConcreteSchemas">
       <summary>Gets the concrete XML schemas used by the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionImporter" /> instance.</summary>
+      <returns>The concrete XML schemas used by the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionImporter" /> instance.</returns>
     </member>
     <member name="M:System.Web.Services.Description.ProtocolImporter.EndClass">
       <summary>When overridden in a derived class, processes a binding class.</summary>
@@ -1857,72 +1872,90 @@
     </member>
     <member name="M:System.Web.Services.Description.ProtocolImporter.GenerateMethod">
       <summary>When overridden in a derived class, generates method code for binding classes.</summary>
+      <returns>The generated method.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.InputMessage">
       <summary>Gets the Web Services Description Language (WSDL) input message for the abstract operation that the protocol importer is currently processing to generate a method in a binding class.</summary>
+      <returns>The Web Services Description Language (WSDL) input message for the abstract operation that the protocol importer is currently processing to generate a method in a binding class.</returns>
     </member>
     <member name="M:System.Web.Services.Description.ProtocolImporter.IsBindingSupported">
       <summary>When overridden in a derived class, determines whether a class can be generated for the current binding.</summary>
+      <returns>True if the binding is supported; otherwise false.</returns>
     </member>
     <member name="M:System.Web.Services.Description.ProtocolImporter.IsOperationFlowSupported(System.Web.Services.Description.OperationFlow)">
       <summary>When overridden in a derived class, determines whether the current operation's operation flow is supported.</summary>
-      <param name="flow"></param>
+      <returns>True if the current operation's operation flow is supported.</returns>
+      <param name="flow">An <see cref="T:System.Web.Services.Description.OperationFlow" />  enumeration value that represents a transmission pattern.</param>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.MethodName">
       <summary>Gets the name of the binding class method which that the protocol importer is currently generating.</summary>
+      <returns>The name of the binding class method which that the protocol importer is currently generating.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.Operation">
       <summary>Gets the abstract Web Services Description Language (WSDL) operation that the protocol importer is currently processing to generate a method in a binding class.</summary>
+      <returns>The abstract Web Services Description Language (WSDL) operation that the protocol importer is currently processing to generate a method in a binding class.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.OperationBinding">
       <summary>Gets the Web Services Description Language (WSDL) operation binding that the protocol importer is currently processing to generate a method in a binding class.</summary>
+      <returns>The Web Services Description Language (WSDL) operation binding that the protocol importer is currently processing to generate a method in a binding class.</returns>
     </member>
     <member name="M:System.Web.Services.Description.ProtocolImporter.OperationBindingSyntaxException(System.String)">
       <summary>Produces an Exception indicating that the current <see cref="P:System.Web.Services.Description.ProtocolImporter.OperationBinding" /> instance for which a binding class is being generated is invalid within the target namespace.</summary>
-      <param name="text"></param>
+      <returns>An Exception indicating that the current <see cref="P:System.Web.Services.Description.ProtocolImporter.OperationBinding" /> instance for which a binding class is being generated is invalid within the target namespace.</returns>
+      <param name="text">Annotation to be added to the exception message, which already indicates that the operation binding syntax is invalid.</param>
     </member>
     <member name="M:System.Web.Services.Description.ProtocolImporter.OperationSyntaxException(System.String)">
       <summary>Produces an Exception indicating that the current <see cref="P:System.Web.Services.Description.ProtocolImporter.Operation" /> instance for which a binding class is being generated is invalid within the target namespace.</summary>
-      <param name="text"></param>
+      <returns>An Exception indicating that the current <see cref="P:System.Web.Services.Description.ProtocolImporter.Operation" /> instance for which a binding class is being generated is invalid within the target namespace.</returns>
+      <param name="text">Annotation to be added to the exception message, which already indicates that the operation syntax is invalid.</param>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.OutputMessage">
       <summary>Gets the Web Services Description Language (WSDL) output message for the abstract operation that the protocol importer is currently processing to generate a method in a binding class.</summary>
+      <returns>The Web Services Description Language (WSDL) output message for the abstract operation that the protocol importer is currently processing to generate a method in a binding class.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.Port">
       <summary>Gets a Web Services Description Language (WSDL) port that contains a reference to the binding that the protocol importer is currently processing to generate a binding class. If more than one port refers to the current binding, the current port is the one in which the binding has most recently been found.</summary>
+      <returns>The Web Services Description Language (WSDL) port that contains a reference to the binding that the protocol importer is currently processing to generate a binding class. If more than one port refers to the current binding, the current port is the one in which the binding has most recently been found.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.PortType">
       <summary>Gets the Web Services Description Language (WSDL) <see cref="P:System.Web.Services.Description.ProtocolImporter.PortType" /> that is implemented by the binding that the protocol importer is currently processing to generate a binding class.</summary>
+      <returns>The Web Services Description Language (WSDL) <see cref="P:System.Web.Services.Description.ProtocolImporter.PortType" /> that is implemented by the binding that the protocol importer is currently processing to generate a binding class.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.ProtocolName">
       <summary>Abstract property that concrete derived classes must implement to get the name of the protocol being used.</summary>
+      <returns>The name of the protocol being used.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.Schemas">
       <summary>Gets all the XML schemas, both abstract and concrete, used by the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionImporter" /> instance.</summary>
+      <returns>The XML schemas, both abstract and concrete, used by the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionImporter" /> instance.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.Service">
       <summary>Gets the Web Services Description Language (WSDL) service that contains a reference to the binding that the protocol importer is currently processing to generate a binding class.</summary>
+      <returns>The Web Services Description Language (WSDL) service that contains a reference to the binding that the protocol importer is currently processing to generate a binding class.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.ServiceDescriptions">
       <summary>Gets the <see cref="T:System.Web.Services.Description.ServiceDescriptionCollection" /> objects that belong to the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionImporter" /> instance that are searched for bindings from which to generate binding classes.</summary>
+      <returns>The <see cref="T:System.Web.Services.Description.ServiceDescriptionCollection" /> objects that belong to the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionImporter" /> instance that are searched for bindings from which to generate binding classes.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.Style">
       <summary>Gets an enumeration value that indicates whether a client proxy class or an abstract server class is being generated. The values are Client and Server. The value is that of the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionImporter" /> instance's <see cref="P:System.Web.Services.Description.ServiceDescriptionImporter.Style" /> property.</summary>
+      <returns>An enumeration value that indicates whether a client proxy class or an abstract server class is being generated. The values are Client and Server. The value is that of the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionImporter" /> instance's <see cref="P:System.Web.Services.Description.ServiceDescriptionImporter.Style" /> property.</returns>
     </member>
     <member name="M:System.Web.Services.Description.ProtocolImporter.UnsupportedBindingWarning(System.String)">
       <summary>Turns on an <see cref="F:System.Web.Services.Description.ServiceDescriptionImportWarnings.UnsupportedBindingsIgnored" /> warning in the <see cref="T:System.Web.Services.Description.ServiceDescriptionImportWarnings" /> enumeration obtained through the <see cref="P:System.Web.Services.Description.ProtocolImporter.Warnings" /> property. This method also adds a warning message to the comments for the class that is being generated.</summary>
-      <param name="text"></param>
+      <param name="text">Annotation to be added to the warning message, which already indicates that the binding has been ignored.</param>
     </member>
     <member name="M:System.Web.Services.Description.ProtocolImporter.UnsupportedOperationBindingWarning(System.String)">
       <summary>Turns on an <see cref="F:System.Web.Services.Description.ServiceDescriptionImportWarnings.UnsupportedOperationsIgnored" /> warning in the <see cref="T:System.Web.Services.Description.ServiceDescriptionImportWarnings" /> enumeration obtained through the <see cref="P:System.Web.Services.Description.ProtocolImporter.Warnings" /> property. This method also adds a warning message to the comments for the class that is being generated.</summary>
-      <param name="text"></param>
+      <param name="text">Annotation to be added to the warning message, which already indicates that the operation binding has been ignored.</param>
     </member>
     <member name="M:System.Web.Services.Description.ProtocolImporter.UnsupportedOperationWarning(System.String)">
       <summary>Turns on an <see cref="F:System.Web.Services.Description.ServiceDescriptionImportWarnings.UnsupportedOperationsIgnored" /> warning in the <see cref="T:System.Web.Services.Description.ServiceDescriptionImportWarnings" /> enumeration obtained through the <see cref="P:System.Web.Services.Description.ProtocolImporter.Warnings" /> property. This method also adds a warning message to the comments for the class that is being generated.</summary>
-      <param name="text"></param>
+      <param name="text">Annotation to be added to the warning message, which already indicates that the operation binding has been ignored.</param>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolImporter.Warnings">
       <summary>Gets or sets a <see cref="T:System.Web.Services.Description.ServiceDescriptionImportWarnings" /> enumeration value that indicates the types of warnings, if any, issued by the protocol importer while generating binding classes.</summary>
+      <returns>A <see cref="T:System.Web.Services.Description.ServiceDescriptionImportWarnings" /> enumeration value that indicates the types of warnings, if any, issued by the protocol importer while generating binding classes.</returns>
     </member>
     <member name="T:System.Web.Services.Description.ProtocolReflector">
       <summary>Provides common functionality across communication protocols for creating <see cref="T:System.Web.Services.Description.ServiceDescription" /> objects from classes that are identified as Web services.</summary>
@@ -1935,82 +1968,106 @@
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.Binding">
       <summary>Gets the Web Services Description Language (WSDL) binding currently being generated and added to the associated <see cref="T:System.Web.Services.Description.ServiceDescription" />.</summary>
+      <returns>The Web Services Description Language (WSDL) binding currently being generated and added to the associated <see cref="T:System.Web.Services.Description.ServiceDescription" />.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.DefaultNamespace">
       <summary>Gets the default namespace, as identified by the associated <see cref="T:System.Web.Services.Description.ServiceDescription" /> object's <see cref="F:System.Web.Services.Description.ServiceDescription.Namespace" /> property.</summary>
+      <returns>The default namespace, as identified by the associated <see cref="T:System.Web.Services.Description.ServiceDescription" /> object's <see cref="F:System.Web.Services.Description.ServiceDescription.Namespace" /> property.</returns>
     </member>
     <member name="M:System.Web.Services.Description.ProtocolReflector.EndClass">
       <summary>When overridden in a derived class, performs processing after <see cref="ProtocolReflector" /> has called the <see cref="M:System.Web.Services.Description.ProtocolReflector.ReflectMethod" /> method for each of the methods for a binding.</summary>
     </member>
     <member name="M:System.Web.Services.Description.ProtocolReflector.GetServiceDescription(System.String)">
       <summary>Gets a <see cref="T:System.Web.Services.Description.ServiceDescription" /> object for a given XML namespace and the applicable communication protocol.</summary>
+      <returns>A <see cref="T:System.Web.Services.Description.ServiceDescription" /> object for a given XML namespace and the applicable communication protocol.</returns>
       <param name="ns">The <see cref="T:System.Web.Services.Description.ServiceDescription" /> instance obtained subsequently gets populated with objects that correspond to Web Services Description Language (WSDL) entities that are reflected from the input Web service class.</param>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.HeaderMessages">
       <summary>Gets SOAP header message definitions to be added to the associated <see cref="T:System.Web.Services.Description.ServiceDescription" /> object.</summary>
+      <returns>SOAP header message definitions to be added to the associated <see cref="T:System.Web.Services.Description.ServiceDescription" /> object.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.InputMessage">
       <summary>Gets the Web Services Description Language (WSDL) input message for the abstract operation that the protocol reflector is currently generating from a Web service method.</summary>
+      <returns>The Web Services Description Language (WSDL) input message for the abstract operation that the protocol reflector is currently generating from a Web service method.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.Method">
       <summary>Gets the Web service method that the protocol reflector is currently processing to generate a Web Services Description Language (WSDL) operation to be placed in the generated <see cref="T:System.Web.Services.Description.ServiceDescription" />.</summary>
+      <returns>The Web service method that the protocol reflector is currently processing to generate a Web Services Description Language (WSDL) operation to be placed in the generated <see cref="T:System.Web.Services.Description.ServiceDescription" />.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.MethodAttribute">
       <summary>Gets the <see cref="T:System.Web.Services.WebMethodAttribute" /> for the method that the protocol reflector is currently processing to generate a Web Services Description Language (WSDL) operation to be placed in the generated <see cref="T:System.Web.Services.Description.ServiceDescription" />.</summary>
+      <returns>The <see cref="T:System.Web.Services.WebMethodAttribute" /> for the method that the protocol reflector is currently processing to generate a Web Services Description Language (WSDL) operation to be placed in the generated <see cref="T:System.Web.Services.Description.ServiceDescription" /></returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.Methods">
       <summary>Gets the Web service methods belonging to the Web service class, as identified by the associated <see cref="T:System.Web.Services.Description.ProtocolReflector" /> object's <see cref="P:System.Web.Services.Description.ProtocolReflector.Methods" /> property.</summary>
+      <returns>The Web service methods belonging to the Web service class, as identified by the associated <see cref="T:System.Web.Services.Description.ProtocolReflector" /> object's <see cref="P:System.Web.Services.Description.ProtocolReflector.Methods" /> property.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.Operation">
       <summary>Gets the abstract Web Services Description Language (WSDL) operation that the protocol reflector is currently generating from a Web service method.</summary>
+      <returns>The abstract Web Services Description Language (WSDL) operation that the protocol reflector is currently generating from a Web service method</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.OperationBinding">
       <summary>Gets the Web Services Description Language (WSDL) operation binding that the protocol importer is currently generating from a Web service method.</summary>
+      <returns>The Web Services Description Language (WSDL) operation binding that the protocol importer is currently generating from a Web service method.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.OutputMessage">
       <summary>Gets the Web Services Description Language (WSDL) output message for the abstract operation that the protocol reflector is currently generating from a Web service method.</summary>
+      <returns>The Web Services Description Language (WSDL) output message for the abstract operation that the protocol reflector is currently generating from a Web service method.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.Port">
       <summary>Gets the Web Services Description Language (WSDL) port that the protocol reflector is currently generating to contain a reference to the binding being generated.</summary>
+      <returns>The Web Services Description Language (WSDL) port that the protocol reflector is currently generating to contain a reference to the binding being generated.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.PortType">
       <summary>Gets the Web Services Description Language (WSDL) portType that the protocol reflector is currently generating to be implemented by the binding being generated.</summary>
+      <returns>The Web Services Description Language (WSDL) portType that the protocol reflector is currently generating to be implemented by the binding being generated.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.ProtocolName">
       <summary>When overridden in a derived class, gets the name of the protocol being used.</summary>
+      <returns>The name of the protocol being used.</returns>
     </member>
     <member name="M:System.Web.Services.Description.ProtocolReflector.ReflectDescription">
       <summary>When overridden in a derived class, generates service-specific description information that gets placed in a <see cref="T:System.Web.Services.Description.ServiceDescription" /> object that corresponds to a binding.</summary>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.ReflectionImporter">
       <summary>Gets the <see cref="T:System.Xml.Serialization.XmlReflectionImporter" /> instance being used by the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionReflector" /> instance.</summary>
+      <returns>The <see cref="T:System.Xml.Serialization.XmlReflectionImporter" /> instance being used by the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionReflector" /> instance.</returns>
     </member>
     <member name="M:System.Web.Services.Description.ProtocolReflector.ReflectMethod">
       <summary>When overridden in a derived class, generates method-specific information that gets placed in a <see cref="T:System.Web.Services.Description.ServiceDescription" /> object corresponding to a binding.</summary>
+      <returns>Method-specific information that gets placed in a <see cref="T:System.Web.Services.Description.ServiceDescription" /> object corresponding to a binding.</returns>
     </member>
     <member name="M:System.Web.Services.Description.ProtocolReflector.ReflectMethodBinding">
       <summary>When overridden in a derived class, returns the name of the binding that a method belongs to.</summary>
+      <returns>The name of the binding that a method belongs to.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.SchemaExporter">
       <summary>Gets the <see cref="T:System.Xml.Serialization.XmlSchemaExporter" /> instance being used by the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionReflector" /> instance.</summary>
+      <returns>The <see cref="T:System.Xml.Serialization.XmlSchemaExporter" /> instance being used by the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionReflector" /> instance.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.Schemas">
       <summary>Gets the XML schemas being generated by the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionReflector" /> instance.</summary>
+      <returns>The XML schemas being generated by the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionReflector" /> instance.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.Service">
       <summary>Gets the Web Services Description Language (WSDL) service that the protocol reflector is currently generating to contain a reference to the binding being generated.</summary>
+      <returns>The Web Services Description Language (WSDL) service that the protocol reflector is currently generating to contain a reference to the binding being generated.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.ServiceDescription">
       <summary>Gets the <see cref="T:System.Web.Services.Description.ServiceDescription" /> object currently being created to contain the binding being generated.</summary>
+      <returns>The <see cref="T:System.Web.Services.Description.ServiceDescription" /> object currently being created to contain the binding being generated.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.ServiceDescriptions">
       <summary>Gets the <see cref="T:System.Web.Services.Description.ServiceDescription" /> objects that have so far been created and added to the corresponding to the <see cref="T:System.Web.Services.Description.ServiceDescriptionCollection" /> obtained through the <see cref="P:System.Web.Services.Description.ServiceDescriptionReflector.ServiceDescriptions" /> property of the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionReflector" /> instance. </summary>
+      <returns>The <see cref="T:System.Web.Services.Description.ServiceDescription" /> objects that have so far been created and added to the corresponding to the <see cref="T:System.Web.Services.Description.ServiceDescriptionCollection" /> obtained through the <see cref="P:System.Web.Services.Description.ServiceDescriptionReflector.ServiceDescriptions" /> property of the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionReflector" /> instance.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.ServiceType">
       <summary>Gets the type of the Web service class being reflected to produce <see cref="T:System.Web.Services.Description.ServiceDescription" /> objects.</summary>
+      <returns>The type of the Web service class being reflected to produce <see cref="T:System.Web.Services.Description.ServiceDescription" /> objects.</returns>
     </member>
     <member name="P:System.Web.Services.Description.ProtocolReflector.ServiceUrl">
       <summary>Gets the endpoint of the associated Web service as a Uniform Resource Locator (URL), obtained from the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionReflector" /> object.</summary>
+      <returns>The endpoint of the associated Web service as a Uniform Resource Locator (URL), obtained from the associated <see cref="T:System.Web.Services.Description.ServiceDescriptionReflector" /> object.</returns>
     </member>
     <member name="T:System.Web.Services.Description.Service">
       <summary>Groups together a set of related instances of the <see cref="T:System.Web.Services.Description.Port" /> class that are associated with an XML Web service. This class cannot be inherited.</summary>
@@ -2191,6 +2248,7 @@
     </member>
     <member name="P:System.Web.Services.Description.ServiceDescription.Serializer">
       <summary>Gets the XML serializer used to serialize and deserialize between a <see cref="T:System.Web.Services.Description.ServiceDescription" /> object and a Web Services Description Language (WSDL) document.</summary>
+      <returns>The XML serializer used to serialize and deserialize between a <see cref="T:System.Web.Services.Description.ServiceDescription" /> object and a Web Services Description Language (WSDL) document.</returns>
       <PermissionSet>
         <IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
         <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
@@ -2703,6 +2761,7 @@
     </member>
     <member name="P:System.Web.Services.Description.SoapExtensionImporter.ImportContext">
       <summary>Gets or sets the <see cref="T:System.Web.Services.Description.SoapProtocolImporter" /> instance that invokes the <see cref="M:System.Web.Services.Description.SoapExtensionImporter.ImportMethod(System.CodeDom.CodeAttributeDeclarationCollection)" /> method.</summary>
+      <returns>The <see cref="T:System.Web.Services.Description.SoapProtocolImporter" /> instance that invokes the <see cref="M:System.Web.Services.Description.SoapExtensionImporter.ImportMethod(System.CodeDom.CodeAttributeDeclarationCollection)" /> method.</returns>
     </member>
     <member name="M:System.Web.Services.Description.SoapExtensionImporter.ImportMethod(System.CodeDom.CodeAttributeDeclarationCollection)">
       <summary>When overridden in a derived class, adds code attribute declarations to any method that represents an operation in a binding.</summary>
@@ -2719,6 +2778,7 @@
     </member>
     <member name="P:System.Web.Services.Description.SoapExtensionReflector.ReflectionContext">
       <summary>Gets or sets the instance of a class derived from the abstract <see cref="T:System.Web.Services.Description.ProtocolReflector" /> class that invokes the <see cref="M:System.Web.Services.Description.SoapExtensionReflector.ReflectMethod" /> method.</summary>
+      <returns>The instance of a class derived from the abstract <see cref="T:System.Web.Services.Description.ProtocolReflector" /> class that invokes the <see cref="M:System.Web.Services.Description.SoapExtensionReflector.ReflectMethod" /> method.</returns>
     </member>
     <member name="M:System.Web.Services.Description.SoapExtensionReflector.ReflectMethod">
       <summary>Abstract method that a derived class must implement to add SOAP extension information to a <see cref="T:System.Web.Services.Description.ServiceDescription" /> object on a per-method basis.</summary>
@@ -2827,6 +2887,7 @@
     </member>
     <member name="M:System.Web.Services.Description.SoapProtocolImporter.BeginClass">
       <summary>Initializes the generation of a binding class.</summary>
+      <returns>A binding class.</returns>
     </member>
     <member name="M:System.Web.Services.Description.SoapProtocolImporter.BeginNamespace">
       <summary>Performs initialization for an entire code namespace during code generation.</summary>
@@ -2839,6 +2900,7 @@
     </member>
     <member name="M:System.Web.Services.Description.SoapProtocolImporter.GenerateMethod">
       <summary>Generates method code for a binding class.</summary>
+      <returns>The method code for a binding class.</returns>
     </member>
     <member name="M:System.Web.Services.Description.SoapProtocolImporter.IsBindingSupported">
       <summary>Determines whether a class can be generated for the current binding.</summary>
@@ -3849,7 +3911,7 @@
     </member>
     <member name="M:System.Web.Services.Protocols.AnyReturnReader.GetInitializer(System.Web.Services.Protocols.LogicalMethodInfo)">
       <summary>Returns the parameter passed to the <see cref="M:System.Web.Services.Protocols.AnyReturnReader.Initialize(System.Object)" /> method.</summary>
-      <returns>An <see cref="T:System.Object" /> that contains the initializer for the specified method.</returns>
+      <returns>The parameter passed to the <see cref="M:System.Web.Services.Protocols.AnyReturnReader.Initialize(System.Object)" /> method.</returns>
       <param name="methodInfo">A <see cref="T:System.Web.Services.Protocols.LogicalMethodInfo" />  that indicates the Web method for which the initializer is obtained.</param>
     </member>
     <member name="M:System.Web.Services.Protocols.AnyReturnReader.Initialize(System.Object)">
@@ -3858,6 +3920,7 @@
     </member>
     <member name="M:System.Web.Services.Protocols.AnyReturnReader.Read(System.Net.WebResponse,System.IO.Stream)">
       <summary>Returns the input HTTP response stream.</summary>
+      <returns>The input HTTP response stream.</returns>
       <param name="response">A representation of the HTTP response sent by a Web service, containing the output message for an operation.</param>
       <param name="responseStream">An output stream whose content is the body of the HTTP response represented by the <paramref name="response" /> parameter.</param>
     </member>
@@ -4270,13 +4333,13 @@
     <member name="M:System.Web.Services.Protocols.MimeFormatter.GetInitializers(System.Type,System.Web.Services.Protocols.LogicalMethodInfo[])">
       <summary>Returns an array of initializer objects corresponding to an input array of method definitions for a specified class derived from <see cref="T:System.Web.Services.Protocols.MimeFormatter" />.</summary>
       <returns>An array of initializer objects corresponding to the input array of method definitions for a specified class derived from <see cref="T:System.Web.Services.Protocols.MimeFormatter" />.</returns>
-      <param name="type"></param>
-      <param name="methodInfos"></param>
+      <param name="type">The Type, derived from <see cref="T:System.Web.Services.Protocols.MimeFormatter" />, for which initializers are obtained.</param>
+      <param name="methodInfos">An array of type <see cref="T:System.Web.Services.Protocols.LogicalMethodInfo" /> that specifies the Web methods for which the initializers are obtained.</param>
     </member>
     <member name="M:System.Web.Services.Protocols.MimeFormatter.GetInitializers(System.Web.Services.Protocols.LogicalMethodInfo[])">
       <summary>When overridden in a derived class, returns an array of initializer objects corresponding to an input array of method definitions.</summary>
       <returns>An array of initializer objects corresponding to the input array of method definitions.</returns>
-      <param name="methodInfos"></param>
+      <param name="methodInfos">An array of Web methods where, for each method, the object of the corresponding index in the returned initializer array is obtained.</param>
     </member>
     <member name="M:System.Web.Services.Protocols.MimeFormatter.Initialize(System.Object)">
       <summary>When overridden in a derived class, initializes an instance.</summary>
@@ -4331,6 +4394,7 @@
     </member>
     <member name="M:System.Web.Services.Protocols.MimeReturnReader.Read(System.Net.WebResponse,System.IO.Stream)">
       <summary>When overridden in a derived class, deserializes an HTTP response into a Web method return value.</summary>
+      <returns>An HTTP response deserialized into a Web method return value.</returns>
       <param name="response">A <see cref="T:System.Net.WebResponse" /> object containing the output message for an operation.</param>
       <param name="responseStream">A <see cref="T:System.IO.Stream" /> whose content is the body of the HTTP response represented by the <see cref="T:System.Net.WebResponse" /> parameter.</param>
     </member>
@@ -4364,6 +4428,7 @@
     </member>
     <member name="M:System.Web.Services.Protocols.PatternMatcher.Match(System.String)">
       <summary>Searches a text input to deserialize an object representing a Web method return value.</summary>
+      <returns>An object representing a Web method return value.</returns>
       <param name="text">The text to search, which is the body of the HTTP response.</param>
     </member>
     <member name="T:System.Web.Services.Protocols.ServerProtocol">
@@ -4557,7 +4622,7 @@
     <member name="M:System.Web.Services.Protocols.SoapException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
       <summary>Initializes a new instance of the <see cref="T:System.Web.Services.Protocols.SoapException" /> class with serialized data.</summary>
       <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized object data about the exception being thrown.</param>
-      <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual information about the source or destination.</param>
+      <param name="context">The T:System.Runtime.Serialization.StreamingContext  that contains contextual information about the source or destination.</param>
     </member>
     <member name="M:System.Web.Services.Protocols.SoapException.#ctor(System.String,System.Xml.XmlQualifiedName)">
       <summary>Initializes a new instance of the <see cref="T:System.Web.Services.Protocols.SoapException" /> class with the specified exception message and exception code.</summary>
@@ -4747,7 +4812,7 @@
     <member name="M:System.Web.Services.Protocols.SoapFaultSubCode.#ctor(System.Xml.XmlQualifiedName,System.Web.Services.Protocols.SoapFaultSubCode)">
       <summary>Initializes a new instance of the <see cref="T:System.Web.Services.Protocols.SoapFaultSubcode" /> class setting the application specific error code and additional error information.</summary>
       <param name="code">An <see cref="T:System.Xml.XmlQualifiedName" /> specifying the application specific error code. Sets the <see cref="P:System.Web.Services.Protocols.SoapFaultSubcode.Code" /> property. </param>
-      <param name="subCode"></param>
+      <param name="subCode">A <see cref="T:System.Web.Services.Protocols.SoapFaultSubcode" /> specifying additional application specific error information. Sets the <see cref="P:System.Web.Services.Protocols.SoapFaultSubcode.Subcode" /> property. </param>
     </member>
     <member name="P:System.Web.Services.Protocols.SoapFaultSubCode.Code">
       <summary>Gets the application specific error code in the form of an XML qualified name.</summary>
@@ -5045,6 +5110,8 @@
       <exception cref="T:System.ArgumentException">
         <paramref name="asyncResult" /> is not the return value from the <see cref="M:System.Web.Services.Protocols.SoapHttpClientProtocol.BeginInvoke(System.String,System.Object[],System.AsyncCallback,System.Object)" /> method. </exception>
       <exception cref="T:System.Web.Services.Protocols.SoapException">The request reached the server computer, but was not processed successfully. </exception>
+      <exception cref="T:System.InvalidOperationException">The request was not valid for the object's current state.</exception>
+      <exception cref="T:System.Net.WebException">An error occurred while accessing the network.</exception>
     </member>
     <member name="M:System.Web.Services.Protocols.SoapHttpClientProtocol.GetReaderForMessage(System.Web.Services.Protocols.SoapClientMessage,System.Int32)">
       <summary>Returns an <see cref="T:System.Xml.XmlReader" /> initialized with the <see cref="P:System.Web.Services.Protocols.SoapMessage.Stream" /> property of the <see cref="T:System.Web.Services.Protocols.SoapClientMessage" /> parameter.</summary>
@@ -5070,6 +5137,8 @@
       <param name="methodName">The name of the XML Web service method. </param>
       <param name="parameters">An array of objects that contains the parameters to pass to the XML Web service. The order of the values in the array corresponds to the order of the parameters in the calling method of the derived class. </param>
       <exception cref="T:System.Web.Services.Protocols.SoapException">The request reached the server computer, but was not processed successfully. </exception>
+      <exception cref="T:System.InvalidOperationException">The request was not valid for the object's current state.</exception>
+      <exception cref="T:System.Net.WebException">An error occurred while accessing the network.</exception>
     </member>
     <member name="M:System.Web.Services.Protocols.SoapHttpClientProtocol.InvokeAsync(System.String,System.Object[],System.Threading.SendOrPostCallback)">
       <summary>Invokes the specified method asynchronously.</summary>
@@ -5612,6 +5681,7 @@
     </member>
     <member name="M:System.Web.Services.Protocols.WebClientProtocol.GetFromCache(System.Type)">
       <summary>Gets an instance of a client protocol handler from the cache.</summary>
+      <returns>An instance of a client protocol handler from the cache.</returns>
       <param name="type">The <see cref="T:System.Type" /> of the client protocol handler to be returned from the cache.</param>
     </member>
     <member name="M:System.Web.Services.Protocols.WebClientProtocol.GetWebRequest(System.Uri)">
@@ -5642,7 +5712,7 @@
       <returns>The character encoding for the client request. The default is null, which uses the default encoding for the underlying transport and protocol.</returns>
     </member>
     <member name="P:System.Web.Services.Protocols.WebClientProtocol.Timeout">
-      <summary>Indicates the time an XML Web service client waits for a synchronous XML Web service request to complete (in milliseconds).</summary>
+      <summary>Indicates the time an XML Web service client waits for the reply to a synchronous XML Web service request to arrive (in milliseconds).</summary>
       <returns>The time out, in milliseconds, for synchronous calls to the XML Web service. The default is 100000 milliseconds.</returns>
     </member>
     <member name="P:System.Web.Services.Protocols.WebClientProtocol.Url">
@@ -5692,7 +5762,7 @@
     </member>
     <member name="M:System.Web.Services.Protocols.XmlReturnReader.GetInitializer(System.Web.Services.Protocols.LogicalMethodInfo)">
       <summary>Returns an initializer for the specified method.</summary>
-      <returns>An <see cref="T:System.Object" /> that contains the initializer for the specified method.</returns>
+      <returns>An initializer for the specified method.</returns>
       <param name="methodInfo">A <see cref="T:System.Web.Services.Protocols.LogicalMethodInfo" /> that specifies the Web method for which the initializer is obtained.</param>
       <PermissionSet>
         <IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
@@ -5703,7 +5773,7 @@
     </member>
     <member name="M:System.Web.Services.Protocols.XmlReturnReader.GetInitializers(System.Web.Services.Protocols.LogicalMethodInfo[])">
       <summary>Returns an array of initializer objects corresponding to an input array of method definitions.</summary>
-      <returns>An array of initializer objects corresponding to the input array of method definitions.</returns>
+      <returns>An array of initializer objects corresponding to an input array of method definitions.</returns>
       <param name="methodInfos">An array of type <see cref="T:System.Web.Services.Protocols.LogicalMethodInfo" /> that specifies the Web methods for which the initializers are obtained.</param>
       <PermissionSet>
         <IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
@@ -5714,10 +5784,11 @@
     </member>
     <member name="M:System.Web.Services.Protocols.XmlReturnReader.Initialize(System.Object)">
       <summary>Initializes an instance.</summary>
-      <param name="o"></param>
+      <param name="o">An <see cref="T:System.Xml.Serialization.XmlSerializer" /> for the return type of the Web method being invoked.</param>
     </member>
     <member name="M:System.Web.Services.Protocols.XmlReturnReader.Read(System.Net.WebResponse,System.IO.Stream)">
       <summary>Gets a return value deserialized from an XML document contained in the HTTP response.</summary>
+      <returns>A return value deserialized from an XML document contained in the HTTP response.</returns>
       <param name="response">An <see cref="T:System.Web.HttpRequest" /> object containing the output message for an operation.</param>
       <param name="responseStream">A <see cref="T:System.IO.Stream" /> whose content is the body of the HTTP response represented by the <paramref name="response" /> parameter.</param>
       <PermissionSet>

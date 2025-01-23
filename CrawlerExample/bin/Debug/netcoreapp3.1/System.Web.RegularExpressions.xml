@@ -89,10 +89,16 @@
       <summary>Initializes a new instance of the <see cref="T:System.Web.RegularExpressions.SimpleDirectiveRegex" /> class. </summary>
     </member>
     <member name="T:System.Web.RegularExpressions.TagRegex">
-      <summary>Provides a regular expression to parse an ASP.NET Web server control tag.</summary>
+      <summary>Provides a regular expression to parse the opening tag of an HTML element, an XML element, or an ASP.NET Web server control tag.</summary>
     </member>
     <member name="M:System.Web.RegularExpressions.TagRegex.#ctor">
       <summary>Initializes a new instance of the <see cref="T:System.Web.RegularExpressions.TagRegex" /> class. </summary>
+    </member>
+    <member name="T:System.Web.RegularExpressions.TagRegex35">
+      <summary>Provides a regular expression to parse the opening tag of an HTML element, an XML element, or an ASP.NET Web server control tag.</summary>
+    </member>
+    <member name="M:System.Web.RegularExpressions.TagRegex35.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:System.Web.RegularExpressions.TagRegex35" /> class.</summary>
     </member>
     <member name="T:System.Web.RegularExpressions.TextRegex">
       <summary>Provides a regular expression to match all characters until the next less than (&lt;) character.</summary>

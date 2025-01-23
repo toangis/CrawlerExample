@@ -15,13 +15,13 @@
       <param name="assemblyBuilder">A container for building an assembly.</param>
     </member>
     <member name="T:System.Data.Services.Design.DataServiceCodeVersion">
-      <summary>Specifies the specific version of The following code-behind page for the XAML file creates an WCF Data Services that should be targeted by code generation. </summary>
+      <summary>Specifies the version of the Open Data Protocol (OData) targeted by the generated code. </summary>
     </member>
     <member name="F:System.Data.Services.Design.DataServiceCodeVersion.V1">
-      <summary>Generate code targets version 1.0.</summary>
+      <summary>Generate code that targets version 1.0.</summary>
     </member>
     <member name="F:System.Data.Services.Design.DataServiceCodeVersion.V2">
-      <summary>Generate code targets version 2.0.</summary>
+      <summary>Generate code that targets version 2.0.</summary>
     </member>
     <member name="T:System.Data.Services.Design.EdmToObjectNamespaceMap">
       <summary>Used by the code generation command line tools and tools in Visual Studio to generate strongly typed client-side objects for communicating with data services.</summary>

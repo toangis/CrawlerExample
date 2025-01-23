@@ -206,19 +206,19 @@
       <summary>The state of an entity object. </summary>
     </member>
     <member name="F:System.Data.EntityState.Detached">
-      <summary>The object exists but it is not being tracked by Object Services. An entity is in this state immediately after it has been created and before it is added to the object context. An entity is also in this state after it has been removed from the context by calling the <see cref="M:System.Data.Objects.ObjectContext.Detach(System.Object)" /> method or if it is loaded using a <see cref="F:System.Data.Objects.MergeOption.NoTracking" /><see cref="T:System.Data.Objects.MergeOption" />.</summary>
+      <summary>The object exists but is not being tracked. An entity is in this state immediately after it has been created and before it is added to the object context. An entity is also in this state after it has been removed from the context by calling the <see cref="M:System.Data.Objects.ObjectContext.Detach(System.Object)" /> method or if it is loaded by using a <see cref="F:System.Data.Objects.MergeOption.NoTracking" /><see cref="T:System.Data.Objects.MergeOption" />. There is no <see cref="T:System.Data.Objects.ObjectStateEntry" /> instance associated with objects in the <see cref="F:System.Data.EntityState.Detached" /> state.</summary>
     </member>
     <member name="F:System.Data.EntityState.Unchanged">
-      <summary>The object has not been modified since it was loaded into the context or since the last time that the <see cref="M:System.Data.Objects.ObjectContext.SaveChanges" /> method was called.</summary>
+      <summary>The object has not been modified since it was attached to the context or since the last time that the <see cref="M:System.Data.Objects.ObjectContext.SaveChanges" /> method was called.</summary>
     </member>
     <member name="F:System.Data.EntityState.Added">
-      <summary>The object is added to the object context and the <see cref="M:System.Data.Objects.ObjectContext.SaveChanges" /> method has not been called. Objects are added to the object context by calling the <see cref="M:System.Data.Objects.ObjectContext.AddObject(System.String,System.Object)" /> method.</summary>
+      <summary>The object is new, has been added to the object context, and the <see cref="M:System.Data.Objects.ObjectContext.SaveChanges" /> method has not been called. After the changes are saved, the object state changes to <see cref="F:System.Data.EntityState.Unchanged" />. Objects in the <see cref="F:System.Data.EntityState.Added" /> state do not have original values in the <see cref="T:System.Data.Objects.ObjectStateEntry" />.</summary>
     </member>
     <member name="F:System.Data.EntityState.Deleted">
-      <summary>The object is deleted from the object context by using the <see cref="M:System.Data.Objects.ObjectContext.DeleteObject(System.Object)" /> method.</summary>
+      <summary>The object has been deleted from the object context. After the changes are saved, the object state changes to <see cref="F:System.Data.EntityState.Detached" />.</summary>
     </member>
     <member name="F:System.Data.EntityState.Modified">
-      <summary>The object is changed but the <see cref="M:System.Data.Objects.ObjectContext.SaveChanges" /> method has not been called.</summary>
+      <summary>One of the scalar properties on the object was modified and the <see cref="M:System.Data.Objects.ObjectContext.SaveChanges" /> method has not been called. In POCO entities without change-tracking proxies, the state of the modified properties changes to <see cref="F:System.Data.EntityState.Modified" /> when the <see cref="M:System.Data.Objects.ObjectContext.DetectChanges" /> method is called. After the changes are saved, the object state changes to <see cref="F:System.Data.EntityState.Unchanged" />.</summary>
     </member>
     <member name="T:System.Data.IExtendedDataRecord">
       <summary>Provides access to the column values within each row of a <see cref="T:System.Data.Common.DbDataRecord" /> for a <see cref="T:System.Data.Common.DbDataReader" />.</summary>
@@ -414,8 +414,8 @@
     </member>
     <member name="M:System.Data.Common.DbProviderManifest.GetDbInformation(System.String)">
       <summary>When overridden in a derived class, this method returns provider-specific information. This method should never return null.</summary>
-      <returns>The <see cref="T:System.Xml.XmlReader" /> object that contains the requested information.</returns>
-      <param name="informationType">The type of the information to return.</param>
+      <returns>The <see cref="T:System.Xml.XmlReader" /> object that represents the mapping to the underlying data store catalog. Providers should override GetDbInformation to return information specific to their provider. The schema of the returned XmlReader must comply with the EDM specification for the given type of information.</returns>
+      <param name="informationType">The type of the information to return. Possible values are:StoreSchemaDefinitionStoreSchemaMapping</param>
     </member>
     <member name="M:System.Data.Common.DbProviderManifest.GetEdmType(System.Data.Metadata.Edm.TypeUsage)">
       <summary>When overridden in a derived class, this method maps the specified storage type and a set of facets for that type to an EDM type.</summary>
@@ -429,8 +429,7 @@
     </member>
     <member name="M:System.Data.Common.DbProviderManifest.GetInformation(System.String)">
       <summary>Gets provider-specific information.</summary>
-      <returns>The <see cref="T:System.Xml.XmlReader" /> object that contains the requested information.</returns>
-      <param name="informationType">The type of the information to return.</param>
+      <param name="informationType">The type of the information to return. Possible values are:StoreSchemaDefinitionStoreSchemaMappingConceptualSchemaDefinition</param>
     </member>
     <member name="M:System.Data.Common.DbProviderManifest.GetStoreFunctions">
       <summary>When overridden in a derived class, returns a collection of EDM functions supported by the provider manifest.</summary>
@@ -442,7 +441,7 @@
       <param name="edmType">The <see cref="T:System.Data.Metadata.Edm.TypeUsage" /> instance that describes the EDM type and a set of facets for that type to be mapped to a storage type.</param>
     </member>
     <member name="M:System.Data.Common.DbProviderManifest.GetStoreTypes">
-      <summary>When overridden in a derived class, returns the set of types supported by the data source.</summary>
+      <summary>When overridden in a derived class, returns the set of primative types supported by the data source.</summary>
       <returns>The set of types supported by the data source.</returns>
     </member>
     <member name="P:System.Data.Common.DbProviderManifest.NamespaceName">
@@ -489,7 +488,7 @@
       <param name="storeItemCollection">The collection of all store items based on which the script should be created.</param>
     </member>
     <member name="M:System.Data.Common.DbProviderServices.CreateDatabaseScript(System.String,System.Data.Metadata.Edm.StoreItemCollection)">
-      <summary>Generates a data definition langauge (DDL0 script that creates schema objects (tables, primary keys, foreign keys) based on the contents of the <see cref="T:System.Data.Metadata.Edm.StoreItemCollection" /> parameter and targeted for the version of the database corresponding to the provider manifest token.</summary>
+      <summary>Generates a data definition langauge (DDL script that creates schema objects (tables, primary keys, foreign keys) based on the contents of the <see cref="T:System.Data.Metadata.Edm.StoreItemCollection" /> parameter and targeted for the version of the database corresponding to the provider manifest token.</summary>
       <returns>A DDL script that creates schema objects based on the contents of the <see cref="T:System.Data.Metadata.Edm.StoreItemCollection" /> parameter and targeted for the version of the database corresponding to the provider manifest token.</returns>
       <param name="providerManifestToken">The provider manifest token identifying the target version.</param>
       <param name="storeItemCollection">The structure of the database to create.</param>
@@ -514,7 +513,7 @@
       <param name="storeItemCollection">The collection of all store items based on which the script should be created.</param>
     </member>
     <member name="M:System.Data.Common.DbProviderServices.DbCreateDatabaseScript(System.String,System.Data.Metadata.Edm.StoreItemCollection)">
-      <summary>Generates a data definition langauge (DDL0 script that creates schema objects (tables, primary keys, foreign keys) based on the contents of the <see cref="T:System.Data.Metadata.Edm.StoreItemCollection" /> parameter and targeted for the version of the database corresponding to the provider manifest token.</summary>
+      <summary>Generates a data definition langauge (DDL script that creates schema objects (tables, primary keys, foreign keys) based on the contents of the <see cref="T:System.Data.Metadata.Edm.StoreItemCollection" /> parameter and targeted for the version of the database corresponding to the provider manifest token.</summary>
       <returns>A DDL script that creates schema objects based on the contents of the <see cref="T:System.Data.Metadata.Edm.StoreItemCollection" /> parameter and targeted for the version of the database corresponding to the provider manifest token.</returns>
       <param name="providerManifestToken">The provider manifest token identifying the target version.</param>
       <param name="storeItemCollection">The structure of the database.</param>
@@ -530,7 +529,7 @@
       <summary>Deletes all store objects specified in the store item collection from the database and the database itself.</summary>
       <param name="connection">Connection to an existing database that needs to be deleted.</param>
       <param name="commandTimeout">Execution timeout for any commands needed to delete the database.</param>
-      <param name="storeItemCollection">The structure of the database to be deleted.</param>
+      <param name="storeItemCollection">The structure of the database to be deleted. </param>
     </member>
     <member name="M:System.Data.Common.DbProviderServices.DeleteDatabase(System.Data.Common.DbConnection,System.Nullable{System.Int32},System.Data.Metadata.Edm.StoreItemCollection)">
       <summary>Deletes all store objects specified in the store item collection from the database and the database itself.</summary>
@@ -547,6 +546,11 @@
       <summary>Returns provider manifest token given a connection.</summary>
       <returns>The provider manifest token for the specified connection.</returns>
       <param name="connection">Connection to provider.</param>
+    </member>
+    <member name="M:System.Data.Common.DbProviderServices.GetProviderFactory(System.Data.Common.DbConnection)">
+      <summary>Retrieves the <see cref="T:System.Data.Common.DbProviderFactory" /> based on the specified <see cref="T:System.Data.Common.DbConnection" />.</summary>
+      <returns>An instance of <see cref="T:System.Data.Common.DbProviderFactory" />.</returns>
+      <param name="connection">The <see cref="T:System.Data.Common.DbConnection" /> to use.</param>
     </member>
     <member name="M:System.Data.Common.DbProviderServices.GetProviderManifest(System.String)">
       <summary>Returns the provider manifest by using the specified version information.</summary>
@@ -4410,7 +4414,7 @@
       <summary>Retrieves an item from this collection by using the specified identity.</summary>
       <returns>An item from this collection.</returns>
       <param name="identity">The identity of the item to be searched for.</param>
-      <param name="ignoreCase">true to perform the case-insensitive search; otherwise, false.</param>
+      <param name="ignoreCase">true to perform the case-insensitive search; otherwise, false. </param>
     </member>
     <member name="M:System.Data.Metadata.Edm.ReadOnlyMetadataCollection`1.IndexOf(`0)">
       <summary>Returns the index of the specified value in this collection.</summary>
@@ -4609,13 +4613,13 @@
       <summary>Creates a <see cref="T:System.Data.Metadata.Edm.DateTimeOffsetTypeUsage" /> object of the type that the parameters describe.</summary>
       <returns>A <see cref="T:System.Data.Metadata.Edm.DateTimeOffsetTypeUsage" /> object.</returns>
       <param name="primitiveType">The simple type that defines the units of measurement of the offset.</param>
-      <param name="precision">The degree of granularity of the <see cref="T:System." /><see cref="DateTimeOffset" /> in fractions of a second, based on the number of decimal places supported. For example a precision of 3 means the granularity supported is milliseconds.</param>
+      <param name="precision">The degree of granularity of the <see cref="T:System." />DateTimeOffset in fractions of a second, based on the number of decimal places supported. For example a precision of 3 means the granularity supported is milliseconds.</param>
     </member>
     <member name="M:System.Data.Metadata.Edm.TypeUsage.CreateDateTimeTypeUsage(System.Data.Metadata.Edm.PrimitiveType,System.Nullable{System.Byte})">
       <summary>Creates a <see cref="T:System.Data.Metadata.Edm.DateTimeTypeUsage" /> object of the type that the parameters describe.</summary>
       <returns>A <see cref="T:System.Data.Metadata.Edm.DateTimeTypeUsage" /> object.</returns>
-      <param name="primitiveType">The simple type that defines the units of measurement of the <see cref="T:System." /><see cref="DateTime" /> object.</param>
-      <param name="precision">The degree of granularity of the <see cref="T:System." /><see cref="DateTimeOffset" /> in fractions of a second, based on the number of decimal places supported. For example a precision of 3 means the granularity supported is milliseconds.</param>
+      <param name="primitiveType">The simple type that defines the units of measurement of the <see cref="T:System." />DateTime object.</param>
+      <param name="precision">The degree of granularity of the <see cref="T:System." />DateTimeOffset in fractions of a second, based on the number of decimal places supported. For example a precision of 3 means the granularity supported is milliseconds.</param>
     </member>
     <member name="M:System.Data.Metadata.Edm.TypeUsage.CreateDecimalTypeUsage(System.Data.Metadata.Edm.PrimitiveType)">
       <summary>Creates a <see cref="T:System.Data.Metadata.Edm.TypeUsage" /> object to describe a decimal type with unbounded precision and scale facet values.</summary>
@@ -4652,8 +4656,8 @@
     <member name="M:System.Data.Metadata.Edm.TypeUsage.CreateTimeTypeUsage(System.Data.Metadata.Edm.PrimitiveType,System.Nullable{System.Byte})">
       <summary>Creates a <see cref="T:System.Data.Metadata.Edm.TimeTypeUsage" /> object of the type that the parameters describe.</summary>
       <returns>A <see cref="T:System.Data.Metadata.Edm.TimeTypeUsage" /> object.</returns>
-      <param name="primitiveType">The simple type that defines the units of measurement of the <see cref="T:System." /><see cref="DateTime" /> object.</param>
-      <param name="precision">The degree of granularity of the <see cref="T:System." /><see cref="DateTimeOffset" /> in fractions of a second, based on the number of decimal places supported. For example a precision of 3 means the granularity supported is milliseconds.</param>
+      <param name="primitiveType">The simple type that defines the units of measurement of the <see cref="T:System." />DateTime object.</param>
+      <param name="precision">The degree of granularity of the <see cref="T:System." />DateTimeOffset in fractions of a second, based on the number of decimal places supported. For example a precision of 3 means the granularity supported is milliseconds.</param>
     </member>
     <member name="P:System.Data.Metadata.Edm.TypeUsage.EdmType">
       <summary>Gets the type information described by this <see cref="T:System.Data.Metadata.Edm.TypeUsage" />.</summary>
@@ -5728,16 +5732,16 @@
       <summary>Specifies how objects being loaded into the object context are merged with objects already in the object context. </summary>
     </member>
     <member name="F:System.Data.Objects.MergeOption.AppendOnly">
-      <summary>Objects that already exist in the object context are not loaded from the data source. This is the default behavior for queries or when calling the <see cref="M:System.Data.Objects.DataClasses.EntityCollection`1.Load(System.Data.Objects.MergeOption)" /> method on an <see cref="T:System.Data.Objects.DataClasses.EntityCollection`1" />.</summary>
+      <summary>Objects that do not exist in the object context are attached to the context. If an object is already in the context, the current and original values of object's properties in the entry are not overwritten with data source values. The state of the object's entry and state of properties of the object in the entry do not change. <see cref="F:System.Data.Objects.MergeOption.AppendOnly" /> is the default merge option.</summary>
     </member>
     <member name="F:System.Data.Objects.MergeOption.OverwriteChanges">
-      <summary>Objects are always loaded from the data source. Any property changes made to objects in the object context are overwritten by the data source values.</summary>
+      <summary>Objects that do not exist in the object context are attached to the context. If an object is already in the context, the current and original values of object's properties in the entry are overwritten with data source values. The state of the object's entry is set to <see cref="F:System.Data.EntityState.Unchanged" />, no properties are marked as modified.</summary>
     </member>
     <member name="F:System.Data.Objects.MergeOption.PreserveChanges">
-      <summary>In the Entity Framework version 3.5 SP1, the unmodified properties of objects in the object context are overwritten with server values. </summary>
+      <summary>Objects that do not exist in the object context are attached to the context. </summary>
     </member>
     <member name="F:System.Data.Objects.MergeOption.NoTracking">
-      <summary>Objects are maintained in a <see cref="F:System.Data.EntityState.Detached" /> state and are not tracked in the <see cref="T:System.Data.Objects.ObjectStateManager" />.</summary>
+      <summary>Objects are maintained in a <see cref="F:System.Data.EntityState.Detached" /> state and are not tracked in the <see cref="T:System.Data.Objects.ObjectStateManager" />. However, Entity Framework-generated entities and POCO entities with proxies maintain a reference to the object context to facilitate loading of related objects.</summary>
     </member>
     <member name="T:System.Data.Objects.ObjectContext">
       <summary>Provides facilities for querying and working with entity data as objects. </summary>
@@ -5778,24 +5782,28 @@
       <exception cref="T:System.ArgumentNullException">The <paramref name="entity" /> parameter is null. -or-The <paramref name="entitySetName" /> does not qualify.</exception>
     </member>
     <member name="M:System.Data.Objects.ObjectContext.ApplyCurrentValues``1(System.String,``0)">
-      <summary>Sets the <see cref="P:System.Data.Objects.ObjectStateEntry.CurrentValues" /> property of the <see cref="T:System.Data.Objects.ObjectStateEntry" /> to match the property values of a supplied object.</summary>
+      <summary>Copies the scalar values from the supplied object into the object in the <see cref="T:System.Data.Objects.ObjectContext" /> that has the same key.</summary>
       <returns>The updated object.</returns>
       <param name="entitySetName">The name of the entity set to which the object belongs.</param>
-      <param name="currentEntity">The detached object that has property updates to apply to the original object.</param>
+      <param name="currentEntity">The detached object that has property updates to apply to the original object. The entity key of <paramref name="currentEntity" /> must match the <see cref="P:System.Data.Objects.ObjectStateEntry.EntityKey" /> property of an entry in the <see cref="T:System.Data.Objects.ObjectContext" />. </param>
       <typeparam name="TEntity">The entity type of the object.</typeparam>
-      <exception cref="T:System.ArgumentNullException">When <paramref name="entitySetName" /> or <paramref name="current" /> is null.</exception>
-      <exception cref="T:System.InvalidOperationException">When the <see cref="T:System.Data.Metadata.Edm.EntitySet" /> from <paramref name="entitySetName" /> does not match the <see cref="T:System.Data.Metadata.Edm.EntitySet" /> of the object’s <see cref="T:System.Data.EntityKey" />.-or-When the object is not in the <see cref="T:System.Data.Objects.ObjectStateManager" /> or it is in a <see cref="F:System.Data.EntityState.Detached" /> state.-or- The entity key of the supplied object is invalid.</exception>
-      <exception cref="T:System.ArgumentException">When <paramref name="entitySetName" /> is an empty string.</exception>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="entitySetName" /> or <paramref name="current" /> is null.</exception>
+      <exception cref="T:System.InvalidOperationException">The <see cref="T:System.Data.Metadata.Edm.EntitySet" /> from <paramref name="entitySetName" /> does not match the <see cref="T:System.Data.Metadata.Edm.EntitySet" /> of the object’s <see cref="T:System.Data.EntityKey" />.-or-The object is not in the <see cref="T:System.Data.Objects.ObjectStateManager" /> or it is in a <see cref="F:System.Data.EntityState.Detached" /> state.-or- The entity key of the supplied object is invalid.</exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="entitySetName" /> is an empty string.</exception>
     </member>
     <member name="M:System.Data.Objects.ObjectContext.ApplyOriginalValues``1(System.String,``0)">
-      <summary>Sets the <see cref="P:System.Data.Objects.ObjectStateEntry.OriginalValues" /> property of the <see cref="T:System.Data.Objects.ObjectStateEntry" /> to match the property values of a supplied object.</summary>
+      <summary>Copies the scalar values from the supplied object into set of original values for the object in the <see cref="T:System.Data.Objects.ObjectContext" /> that has the same key.</summary>
       <returns>The updated object.</returns>
       <param name="entitySetName">The name of the entity set to which the object belongs.</param>
-      <param name="originalEntity">The detached object that has original values to apply to the object.</param>
+      <param name="originalEntity">The detached object that has original values to apply to the object. The entity key of <paramref name="originalEntity" /> must match the <see cref="P:System.Data.Objects.ObjectStateEntry.EntityKey" /> property of an entry in the <see cref="T:System.Data.Objects.ObjectContext" />.</param>
       <typeparam name="TEntity">The type of the entity object.</typeparam>
-      <exception cref="T:System.ArgumentNullException">When <paramref name="entitySetName" /> or <paramref name="original" /> is null.</exception>
-      <exception cref="T:System.InvalidOperationException">When the <see cref="T:System.Data.Metadata.Edm.EntitySet" /> from <paramref name="entitySetName" /> does not match the <see cref="T:System.Data.Metadata.Edm.EntitySet" /> of the object’s <see cref="T:System.Data.EntityKey" />.-or-When an <see cref="T:System.Data.Objects.ObjectStateEntry" /> for the object cannot be found in the <see cref="T:System.Data.Objects.ObjectStateManager" />. -or-When the object is in an <see cref="F:System.Data.EntityState.Added" /> or a <see cref="F:System.Data.EntityState.Detached" /> state.-or- The entity key of the supplied object is invalid or has property changes.</exception>
-      <exception cref="T:System.ArgumentException">When <paramref name="entitySetName" /> is an empty string.</exception>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="entitySetName" /> or <paramref name="original" /> is null.</exception>
+      <exception cref="T:System.InvalidOperationException">The <see cref="T:System.Data.Metadata.Edm.EntitySet" /> from <paramref name="entitySetName" /> does not match the <see cref="T:System.Data.Metadata.Edm.EntitySet" /> of the object’s <see cref="T:System.Data.EntityKey" />.-or-An <see cref="T:System.Data.Objects.ObjectStateEntry" /> for the object cannot be found in the <see cref="T:System.Data.Objects.ObjectStateManager" />. -or-The object is in an <see cref="F:System.Data.EntityState.Added" /> or a <see cref="F:System.Data.EntityState.Detached" /> state.-or- The entity key of the supplied object is invalid or has property changes.</exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="entitySetName" /> is an empty string.</exception>
     </member>
     <member name="M:System.Data.Objects.ObjectContext.ApplyPropertyChanges(System.String,System.Object)">
       <summary>Applies property changes from a detached object to an object already attached to the object context.</summary>
@@ -5836,14 +5844,14 @@
       <summary>Creates the database by using the current data source connection and the metadata in the <see cref="T:System.Data.Metadata.Edm.StoreItemCollection" />.</summary>
     </member>
     <member name="M:System.Data.Objects.ObjectContext.CreateDatabaseScript">
-      <summary>Generates a data definition langauge (DDL) script that creates schema objects (tables, primary keys, foreign keys) for the metadata in the <see cref="T:System.Data.Metadata.Edm.StoreItemCollection" />.</summary>
+      <summary>Generates a data definition language (DDL) script that creates schema objects (tables, primary keys, foreign keys) for the metadata in the <see cref="T:System.Data.Metadata.Edm.StoreItemCollection" />. The <see cref="T:System.Data.Metadata.Edm.StoreItemCollection" /> loads metadata from store schema definition language (SSDL) files.</summary>
       <returns>A DDL script that creates schema objects for the metadata in the <see cref="T:System.Data.Metadata.Edm.StoreItemCollection" />.</returns>
     </member>
     <member name="M:System.Data.Objects.ObjectContext.CreateEntityKey(System.String,System.Object)">
       <summary>Creates the entity key for a specific object, or returns the entity key if it already exists. </summary>
       <returns>The <see cref="T:System.Data.EntityKey" /> of the object.</returns>
       <param name="entitySetName">The fully qualified name of the entity set to which the entity object belongs.</param>
-      <param name="entity">The object for which the entity key is being retrieved. The object must implement <see cref="T:System.Data.Objects.DataClasses.IEntityWithKey" />.</param>
+      <param name="entity">The object for which the entity key is being retrieved. </param>
       <exception cref="T:System.ArgumentNullException">When either parameter is null. </exception>
       <exception cref="T:System.ArgumentException">When <paramref name="entitySetName" /> is empty.-or- When the type of the <paramref name="entity" /> object does not exist in the entity set.-or-When the <paramref name="entitySetName" /> is not fully qualified.</exception>
       <exception cref="T:System.InvalidOperationException">When the entity key cannot be constructed successfully based on the supplied parameters.</exception>
@@ -5857,18 +5865,18 @@
       <summary>Creates a new <see cref="T:System.Data.Objects.ObjectSet`1" /> instance that is used to query, add, modify, and delete objects of the specified entity type.</summary>
       <returns>The new <see cref="T:System.Data.Objects.ObjectSet`1" /> instance.</returns>
       <typeparam name="TEntity">Entity type of the requested <see cref="T:System.Data.Objects.ObjectSet`1" />.</typeparam>
-      <exception cref="T:System.InvalidOperationException">When the <see cref="P:System.Data.Objects.ObjectContext.DefaultContainerName" /> property is not set on the <see cref="T:System.Data.Objects.ObjectContext" />.-or-When the specified type belongs to more than one entity set.</exception>
+      <exception cref="T:System.InvalidOperationException">The <see cref="P:System.Data.Objects.ObjectContext.DefaultContainerName" /> property is not set on the <see cref="T:System.Data.Objects.ObjectContext" />.-or-The specified type belongs to more than one entity set.</exception>
     </member>
     <member name="M:System.Data.Objects.ObjectContext.CreateObjectSet``1(System.String)">
       <summary>Creates a new <see cref="T:System.Data.Objects.ObjectSet`1" /> instance that is used to query, add, modify, and delete objects of the specified type and with the specified entity set name.</summary>
       <returns>The new <see cref="T:System.Data.Objects.ObjectSet`1" /> instance.</returns>
       <param name="entitySetName">Name of the entity set for the returned <see cref="T:System.Data.Objects.ObjectSet`1" />. The string must be qualified by the default container name if the <see cref="P:System.Data.Objects.ObjectContext.DefaultContainerName" /> property is not set on the <see cref="T:System.Data.Objects.ObjectContext" />. </param>
       <typeparam name="TEntity">Entity type of the requested <see cref="T:System.Data.Objects.ObjectSet`1" />.</typeparam>
-      <exception cref="T:System.InvalidOperationException">When the <see cref="T:System.Data.Metadata.Edm.EntitySet" /> from <paramref name="entitySetName" /> does not match the <see cref="T:System.Data.Metadata.Edm.EntitySet" /> of the object’s <see cref="T:System.Data.EntityKey" />.-or-When the <see cref="P:System.Data.Objects.ObjectContext.DefaultContainerName" /> property is not set on the <see cref="T:System.Data.Objects.ObjectContext" /> and the name is not qualified as part of the <paramref name="entitySetName" /> parameter.-or-When the specified type belongs to more than one entity set.</exception>
+      <exception cref="T:System.InvalidOperationException">The <see cref="T:System.Data.Metadata.Edm.EntitySet" /> from <paramref name="entitySetName" /> does not match the <see cref="T:System.Data.Metadata.Edm.EntitySet" /> of the object’s <see cref="T:System.Data.EntityKey" />.-or-The <see cref="P:System.Data.Objects.ObjectContext.DefaultContainerName" /> property is not set on the <see cref="T:System.Data.Objects.ObjectContext" /> and the name is not qualified as part of the <paramref name="entitySetName" /> parameter.-or-The specified type belongs to more than one entity set.</exception>
     </member>
     <member name="M:System.Data.Objects.ObjectContext.CreateProxyTypes(System.Collections.Generic.IEnumerable{System.Type})">
       <summary>Generates an equivalent type that can be used with the Entity Framework for each type in the supplied enumeration.</summary>
-      <param name="types"></param>
+      <param name="types">An enumeration of <see cref="T:System.Type" /> objects that represent custom data classes that map to the conceptual model.</param>
     </member>
     <member name="M:System.Data.Objects.ObjectContext.CreateQuery``1(System.String,System.Data.Objects.ObjectParameter[])">
       <summary>Creates an <see cref="T:System.Data.Objects.ObjectQuery`1" /> in the current object context by using the specified query string.</summary>
@@ -5981,23 +5989,25 @@
       <summary>Explicitly loads an object related to the supplied object by the specified navigation property and using the default merge option. </summary>
       <param name="entity">The entity for which related objects are to be loaded.</param>
       <param name="navigationProperty">The name of the navigation property that returns the related objects to be loaded.</param>
-      <exception cref="T:System.InvalidOperationException">When the <paramref name="entity" /> is in a <see cref="F:System.Data.EntityState.Detached" />, <see cref="F:System.Data.EntityState.Added," /> or <see cref="F:System.Data.EntityState.Deleted" /> state,-or-When the <paramref name="entity" /> is attached to another instance of <see cref="T:System.Data.Objects.ObjectContext" />. </exception>
+      <exception cref="T:System.InvalidOperationException">The <paramref name="entity" /> is in a <see cref="F:System.Data.EntityState.Detached" />, <see cref="F:System.Data.EntityState.Added," /> or <see cref="F:System.Data.EntityState.Deleted" /> state,-or-The <paramref name="entity" /> is attached to another instance of <see cref="T:System.Data.Objects.ObjectContext" />. </exception>
     </member>
     <member name="M:System.Data.Objects.ObjectContext.LoadProperty(System.Object,System.String,System.Data.Objects.MergeOption)">
       <summary>Explicitly loads an object that is related to the supplied object by the specified navigation property and using the specified merge option. </summary>
       <param name="entity">The entity for which related objects are to be loaded.</param>
       <param name="navigationProperty">The name of the navigation property that returns the related objects to be loaded.</param>
       <param name="mergeOption">The <see cref="T:System.Data.Objects.MergeOption" /> value to use when you load the related objects.</param>
-      <exception cref="T:System.InvalidOperationException">When the <paramref name="entity" /> is in a <see cref="F:System.Data.EntityState.Detached" />, <see cref="F:System.Data.EntityState.Added," /> or <see cref="F:System.Data.EntityState.Deleted" /> state,-or-When the <paramref name="entity" /> is attached to another instance of <see cref="T:System.Data.Objects.ObjectContext" />. </exception>
+      <exception cref="T:System.InvalidOperationException">The <paramref name="entity" /> is in a <see cref="F:System.Data.EntityState.Detached" />, <see cref="F:System.Data.EntityState.Added," /> or <see cref="F:System.Data.EntityState.Deleted" /> state,-or-The <paramref name="entity" /> is attached to another instance of <see cref="T:System.Data.Objects.ObjectContext" />. </exception>
     </member>
     <member name="M:System.Data.Objects.ObjectContext.LoadProperty``1(``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
       <summary>Explicitly loads an object that is related to the supplied object by the specified LINQ query and by using the default merge option. </summary>
       <param name="entity">The source object for which related objects are to be loaded.</param>
       <param name="selector">A LINQ expression that defines the related objects to be loaded.</param>
       <typeparam name="TEntity"></typeparam>
-      <exception cref="T:System.ArgumentException">When <paramref name="selector" /> does not supply a valid input parameter.</exception>
-      <exception cref="T:System.ArgumentNullException">When <paramref name="selector" /> is null.</exception>
-      <exception cref="T:System.InvalidOperationException">When the <paramref name="entity" /> is in a <see cref="F:System.Data.EntityState.Detached" />, <see cref="F:System.Data.EntityState.Added," /> or <see cref="F:System.Data.EntityState.Deleted" /> state,-or-When the <paramref name="entity" /> is attached to another instance of <see cref="T:System.Data.Objects.ObjectContext" />. </exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="selector" /> does not supply a valid input parameter.</exception>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="selector" /> is null.</exception>
+      <exception cref="T:System.InvalidOperationException">The <paramref name="entity" /> is in a <see cref="F:System.Data.EntityState.Detached" />, <see cref="F:System.Data.EntityState.Added," /> or <see cref="F:System.Data.EntityState.Deleted" /> state,-or-The <paramref name="entity" /> is attached to another instance of <see cref="T:System.Data.Objects.ObjectContext" />. </exception>
     </member>
     <member name="M:System.Data.Objects.ObjectContext.LoadProperty``1(``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Data.Objects.MergeOption)">
       <summary>Explicitly loads an object that is related to the supplied object by the specified LINQ query and by using the specified merge option. </summary>
@@ -6005,9 +6015,11 @@
       <param name="selector">A LINQ expression that defines the related objects to be loaded.</param>
       <param name="mergeOption">The <see cref="T:System.Data.Objects.MergeOption" /> value to use when you load the related objects.</param>
       <typeparam name="TEntity"></typeparam>
-      <exception cref="T:System.ArgumentException">When <paramref name="selector" /> does not supply a valid input parameter.</exception>
-      <exception cref="T:System.ArgumentNullException">When <paramref name="selector" /> is null.</exception>
-      <exception cref="T:System.InvalidOperationException">When the <paramref name="entity" /> is in a <see cref="F:System.Data.EntityState.Detached" />, <see cref="F:System.Data.EntityState.Added," /> or <see cref="F:System.Data.EntityState.Deleted" /> state,-or-When the <paramref name="entity" /> is attached to another instance of <see cref="T:System.Data.Objects.ObjectContext" />. </exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="selector" /> does not supply a valid input parameter.</exception>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="selector" /> is null.</exception>
+      <exception cref="T:System.InvalidOperationException">The <paramref name="entity" /> is in a <see cref="F:System.Data.EntityState.Detached" />, <see cref="F:System.Data.EntityState.Added," /> or <see cref="F:System.Data.EntityState.Deleted" /> state,-or-The <paramref name="entity" /> is attached to another instance of <see cref="T:System.Data.Objects.ObjectContext" />. </exception>
     </member>
     <member name="P:System.Data.Objects.ObjectContext.MetadataWorkspace">
       <summary>Gets the metadata workspace used by the object context. </summary>
@@ -6102,7 +6114,7 @@
     </member>
     <member name="P:System.Data.Objects.ObjectContextOptions.ProxyCreationEnabled">
       <summary>Gets or sets a Boolean value that determines whether proxy instances are created for custom data classes that are persistence ignorant. </summary>
-      <returns>A <see cref="T:System.Boolean" /> value that is true when proxies are created; otherwise false.</returns>
+      <returns>A <see cref="T:System.Boolean" /> value that is true when proxies are created; otherwise false. The default value is true.</returns>
     </member>
     <member name="P:System.Data.Objects.ObjectContextOptions.UseLegacyPreserveChangesBehavior">
       <summary>Gets or sets a <see cref="T:System.Boolean" /> value that determines whether to use the legacy <see cref="F:System.Data.Objects.MergeOption.PreserveChanges" /> behavior. </summary>
@@ -6449,14 +6461,14 @@
       <param name="entity">The object to add.</param>
     </member>
     <member name="M:System.Data.Objects.ObjectSet`1.ApplyCurrentValues(`0)">
-      <summary>Sets the <see cref="P:System.Data.Objects.ObjectStateEntry.CurrentValues" /> property of an <see cref="T:System.Data.Objects.ObjectStateEntry" /> to match the property values of a supplied object.</summary>
+      <summary>Copies the scalar values from the supplied object into the object in the <see cref="T:System.Data.Objects.ObjectContext" /> that has the same key.</summary>
       <returns>The updated object.</returns>
-      <param name="currentEntity">The detached object that has property updates to apply to the original object.</param>
+      <param name="currentEntity">The detached object that has property updates to apply to the original object. The entity key of <paramref name="currentEntity" /> must match the <see cref="P:System.Data.Objects.ObjectStateEntry.EntityKey" /> property of an entry in the <see cref="T:System.Data.Objects.ObjectContext" />.</param>
     </member>
     <member name="M:System.Data.Objects.ObjectSet`1.ApplyOriginalValues(`0)">
       <summary>Sets the <see cref="P:System.Data.Objects.ObjectStateEntry.OriginalValues" /> property of an <see cref="T:System.Data.Objects.ObjectStateEntry" /> to match the property values of a supplied object.</summary>
       <returns>The updated object.</returns>
-      <param name="originalEntity">The detached object that has property updates to apply to the original object.</param>
+      <param name="originalEntity">The detached object that has property updates to apply to the original object. The entity key of <paramref name="originalEntity" /> must match the <see cref="P:System.Data.Objects.ObjectStateEntry.EntityKey" /> property of an entry in the <see cref="T:System.Data.Objects.ObjectContext" />.</param>
     </member>
     <member name="M:System.Data.Objects.ObjectSet`1.Attach(`0)">
       <summary>Attaches an object or object graph to the object context in the current entity set. </summary>

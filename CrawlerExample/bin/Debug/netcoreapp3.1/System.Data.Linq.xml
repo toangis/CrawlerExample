@@ -422,7 +422,7 @@
       <summary>Specifies that all updates to the database should be tried, and that concurrency conflicts should be accumulated and returned at the end of the process.</summary>
     </member>
     <member name="T:System.Data.Linq.DataContext">
-      <summary>Represents the main entry point for the LINQ to SQL framework. </summary>
+      <summary>Represents the main entry point for the LINQ to SQL framework. </summary>
     </member>
     <member name="M:System.Data.Linq.DataContext.#ctor(System.Data.IDbConnection)">
       <summary>Initializes a new instance of the <see cref="T:System.Data.Linq.DataContext" /> class by referencing the connection used by the .NET Framework.</summary>

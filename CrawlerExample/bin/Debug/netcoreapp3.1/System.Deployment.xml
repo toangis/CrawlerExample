@@ -26,8 +26,7 @@
     <member name="M:System.Deployment.Application.ApplicationDeployment.CheckForUpdate">
       <summary>Checks <see cref="P:System.Deployment.Application.ApplicationDeployment.UpdateLocation" /> to determine whether a new update is available.</summary>
       <returns>true if a new update is available; otherwise, false.</returns>
-      <exception cref="T:System.InvalidOperationException">
-                ClickOnce throws this exception immediately if you call the <see cref="M:System.Deployment.Application.ApplicationDeployment.CheckForUpdate" />  method while an update is already in progress.</exception>
+      <exception cref="T:System.InvalidOperationException">ClickOnce throws this exception immediately if you call the <see cref="M:System.Deployment.Application.ApplicationDeployment.CheckForUpdate" />  method while an update is already in progress.</exception>
       <exception cref="T:System.Deployment.Application.DeploymentDownloadException">The deployment manifest cannot be downloaded. </exception>
       <exception cref="T:System.Deployment.Application.InvalidDeploymentException">The deployment manifest is corrupted. You will likely need to redeploy the application to fix this problem. </exception>
     </member>
@@ -38,8 +37,7 @@
     </member>
     <member name="M:System.Deployment.Application.ApplicationDeployment.CheckForUpdateAsync">
       <summary>Checks <see cref="P:System.Deployment.Application.ApplicationDeployment.UpdateLocation" /> asynchronously to determine whether a new update is available.</summary>
-      <exception cref="T:System.InvalidOperationException">
-                ClickOnce throws this exception immediately if you call the <see cref="M:System.Deployment.Application.ApplicationDeployment.CheckForUpdateAsync" />  method while an update is already in progress.</exception>
+      <exception cref="T:System.InvalidOperationException">ClickOnce throws this exception immediately if you call the <see cref="M:System.Deployment.Application.ApplicationDeployment.CheckForUpdateAsync" />  method while an update is already in progress.</exception>
       <exception cref="T:System.Deployment.Application.DeploymentDownloadException">The deployment manifest cannot be downloaded. This exception appears in the <see cref="P:System.ComponentModel.AsyncCompletedEventArgs.Error" /> property of the <see cref="E:System.Deployment.Application.ApplicationDeployment.CheckForUpdateCompleted" /> event.</exception>
       <exception cref="T:System.Deployment.Application.InvalidDeploymentException">The deployment manifest is corrupted. You will likely need to redeploy the application to fix this problem. This exception appears in the <see cref="P:System.ComponentModel.AsyncCompletedEventArgs.Error" /> property of the <see cref="E:System.Deployment.Application.ApplicationDeployment.CheckForUpdateCompleted" /> event.</exception>
     </member>
@@ -294,16 +292,21 @@
     </member>
     <member name="M:System.Deployment.Application.DeploymentException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
       <summary>Initializes a new instance of the <see cref="T:System.Deployment.Application.DeploymentException" /> class. </summary>
+      <param name="serializationInfo">Stores all the data needed to serialize or deserialize an object. This class cannot be inherited.</param>
+      <param name="streamingContext">Describes the source and destination of a given serialized stream, and provides an additional caller-defined context.</param>
     </member>
     <member name="M:System.Deployment.Application.DeploymentException.#ctor(System.String)">
       <summary>Initializes a new instance of the <see cref="T:System.Deployment.Application.DeploymentException" /> class. </summary>
+      <param name="message">Represents text as a series of Unicode characters.</param>
     </member>
     <member name="M:System.Deployment.Application.DeploymentException.#ctor(System.String,System.Exception)">
       <summary>Initializes a new instance of the <see cref="T:System.Deployment.Application.DeploymentException" /> class. </summary>
+      <param name="message">Represents text as a series of Unicode characters.</param>
+      <param name="innerException">Represents errors that occur during application execution.</param>
     </member>
     <member name="M:System.Deployment.Application.DeploymentException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-      <param name="info"></param>
-      <param name="context"></param>
+      <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized object data about the exception being thrown. </param>
+      <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual information about the source or destination. </param>
     </member>
     <member name="T:System.Deployment.Application.DeploymentProgressChangedEventArgs">
       <summary>Represents progress data reported in an asynchronous operation.</summary>
@@ -333,16 +336,13 @@
       <summary>Specifies the current stage of a ClickOnce download operation.</summary>
     </member>
     <member name="F:System.Deployment.Application.DeploymentProgressState.DownloadingDeploymentInformation">
-      <summary>
-            ClickOnce is downloading the deployment manifest.</summary>
+      <summary>ClickOnce is downloading the deployment manifest.</summary>
     </member>
     <member name="F:System.Deployment.Application.DeploymentProgressState.DownloadingApplicationInformation">
-      <summary>
-            ClickOnce is downloading the application manifest.</summary>
+      <summary>ClickOnce is downloading the application manifest.</summary>
     </member>
     <member name="F:System.Deployment.Application.DeploymentProgressState.DownloadingApplicationFiles">
-      <summary>
-            ClickOnce is downloading the DLLs and data files that comprised the application.</summary>
+      <summary>ClickOnce is downloading the DLLs and data files that comprised the application.</summary>
     </member>
     <member name="T:System.Deployment.Application.DeploymentServiceCom">
       <summary>Provides internal services for the ClickOnce deployment API. </summary>

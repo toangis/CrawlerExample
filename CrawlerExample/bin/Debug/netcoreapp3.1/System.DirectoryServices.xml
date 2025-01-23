@@ -537,15 +537,11 @@
     </member>
     <member name="M:System.DirectoryServices.DirectoryEntry.#ctor(System.String,System.String,System.String)">
       <summary>Initializes a new instance of the <see cref="T:System.DirectoryServices.DirectoryEntry" /> class.</summary>
-      <param name="path"></param>
       <param name="username">The user name to use when authenticating the client. The <see cref="P:System.DirectoryServices.DirectoryEntry.Username" /> property is initialized to this value.</param>
-      <param name="password"></param>
     </member>
     <member name="M:System.DirectoryServices.DirectoryEntry.#ctor(System.String,System.String,System.String,System.DirectoryServices.AuthenticationTypes)">
       <summary>Initializes a new instance of the <see cref="T:System.DirectoryServices.DirectoryEntry" /> class.</summary>
-      <param name="path"></param>
       <param name="username">The user name to use when authenticating the client. The <see cref="P:System.DirectoryServices.DirectoryEntry.Username" /> property is initialized to this value.</param>
-      <param name="password"></param>
       <param name="authenticationType">One of the <see cref="T:System.DirectoryServices.AuthenticationTypes" /> values. The <see cref="P:System.DirectoryServices.DirectoryEntry.AuthenticationType" /> property is initialized to this value.</param>
     </member>
     <member name="P:System.DirectoryServices.DirectoryEntry.AuthenticationType">
@@ -1399,7 +1395,6 @@
     <member name="M:System.DirectoryServices.PropertyCollection.System#Collections#IDictionary#Contains(System.Object)">
       <summary>Determines whether the <see cref="T:System.Collections.IDictionary" /> object contains an element with the specified key.</summary>
       <returns>true if the <see cref="T:System.Collections.IDictionary" /> contains an element with the key; otherwise, false.</returns>
-      <param name="value"></param>
       <exception cref="T:System.ArgumentNullException">
         <paramref name="key" /> is null. </exception>
     </member>
@@ -1540,7 +1535,6 @@
     </member>
     <member name="M:System.DirectoryServices.PropertyValueCollection.Remove(System.Object)">
       <summary>Removes a specified property value from this collection.</summary>
-      <param name="value"></param>
       <exception cref="T:System.ArgumentNullException">The property value is a null reference (Nothing in Visual Basic).</exception>
       <exception cref="T:System.Runtime.InteropServices.COMException">An error occurred during the call to the underlying interface.</exception>
     </member>
@@ -1754,12 +1748,9 @@
     <member name="M:System.DirectoryServices.SearchResultCollection.Contains(System.DirectoryServices.SearchResult)">
       <summary>Determines if a specified <see cref="T:System.DirectoryServices.SearchResult" /> object is in this collection.</summary>
       <returns>true if the specified property belongs to this collection; otherwise, false.</returns>
-      <param name="result"></param>
     </member>
     <member name="M:System.DirectoryServices.SearchResultCollection.CopyTo(System.DirectoryServices.SearchResult[],System.Int32)">
       <summary>Copies all <see cref="T:System.DirectoryServices.SearchResult" /> objects in this collection to the specific array, starting at the specified index in the target array.</summary>
-      <param name="results"></param>
-      <param name="index"></param>
     </member>
     <member name="P:System.DirectoryServices.SearchResultCollection.Count">
       <summary>Gets the number of <see cref="T:System.DirectoryServices.SearchResult" /> objects in this collection.</summary>
@@ -2172,9 +2163,7 @@
     </member>
     <member name="P:System.DirectoryServices.ActiveDirectory.ActiveDirectorySchedule.RawSchedule">
       <summary>Gets or sets a three-dimensional array that indicates at what time during the week that the source is available for replication.</summary>
-      <returns>A three-dimensional array of <see cref="T:System.Boolean" /> elements in which the element is true if the source is available for replication during that specific 15-minute interval. The element is false if the source is not available for replication.The array is in the form RawSchedule[&lt;day-of-week&gt;, &lt;hour&gt;, &lt;15-minute interval&gt;]. All of these values are zero-based and the week begins at 00:00 on Sunday morning, Coordinated Universal Time.The following are the valid values for the day-of-week.Day-of-week valueIndicated day of the week.0Sunday1Monday2Tuesday3Wednesday4Thursday5Friday6SaturdayThe hour is zero-based and specified in 24-hour format. For example, 2 P.M. would be specified as 14. Valid values are 0-23.The 15-minute interval specifies the 15-minute block within the hour that the source is available for replication. The following table identifies the possible values for the 15-minute interval.15-minute intervalDescription0The source is available for replication from 0 to 14 minutes after the hour.1The source is available for replication from 15 to 29 minutes after the hour.2The source is available for replication from 30 to 44 minutes after the hour.3The source is available for replication from 45 to 59 minutes after the hour.The following C# example shows how to use this property to determine if the source is available for replication at 15:50 Coordinated Universal Time on Tuesday.C# Copy CodeBoolean isAvailable = scheduleObject.RawSchedule[2, 15, 3];
-The following C# example shows how to use this property to calculate the 15-minute interval at runtime by dividing the minutes by 15.C# Copy CodeBoolean isAvailable = scheduleObject.RawSchedule[2, 15, (Int32)50/15];
-</returns>
+      <returns>A three-dimensional array of <see cref="T:System.Boolean" /> elements in which the element is true if the source is available for replication during that specific 15-minute interval. The element is false if the source is not available for replication.The array is in the form RawSchedule[&lt;day-of-week&gt;, &lt;hour&gt;, &lt;15-minute interval&gt;]. All of these values are zero-based and the week begins at 00:00 on Sunday morning, Coordinated Universal Time.The following are the valid values for the day-of-week.Day-of-week valueIndicated day of the week.0Sunday1Monday2Tuesday3Wednesday4Thursday5Friday6SaturdayThe hour is zero-based and specified in 24-hour format. For example, 2 P.M. would be specified as 14. Valid values are 0-23.The 15-minute interval specifies the 15-minute block within the hour that the source is available for replication. The following table identifies the possible values for the 15-minute interval.15-minute intervalDescription0The source is available for replication from 0 to 14 minutes after the hour.1The source is available for replication from 15 to 29 minutes after the hour.2The source is available for replication from 30 to 44 minutes after the hour.3The source is available for replication from 45 to 59 minutes after the hour.The following C# example shows how to use this property to determine if the source is available for replication at 15:50 Coordinated Universal Time on Tuesday.C# Copy CodeBoolean isAvailable = scheduleObject.RawSchedule[2, 15, 3];The following C# example shows how to use this property to calculate the 15-minute interval at runtime by dividing the minutes by 15.C# Copy CodeBoolean isAvailable = scheduleObject.RawSchedule[2, 15, (Int32)50/15];</returns>
     </member>
     <member name="M:System.DirectoryServices.ActiveDirectory.ActiveDirectorySchedule.ResetSchedule">
       <summary>Resets the entire schedule to unavailable.</summary>
@@ -3368,14 +3357,14 @@ The following C# example shows how to use this property to calculate the 15-minu
       <param name="disposing">true if the managed resources should be released; false if only the unmanaged resources should be released.</param>
     </member>
     <member name="M:System.DirectoryServices.ActiveDirectory.ActiveDirectorySiteLinkBridge.FindByName(System.DirectoryServices.ActiveDirectory.DirectoryContext,System.String)">
-      <summary>Gets a <see cref="T:System.DirectoryServices.ActiveDirectory.ActiveDirectorySiteLinkBridge" /> object that matches a given directory context and name.</summary>
+      <summary>Gets a <see cref="T:System.DirectoryServices.ActiveDirectory.ActiveDirectorySiteLinkBridge" /> object that matches a given directory context and name for the RPC transport protocol only.</summary>
       <returns>A <see cref="T:System.DirectoryServices.ActiveDirectory.ActiveDirectorySiteLinkBridge" /> object. null if the object was not found.</returns>
       <param name="context">A <see cref="T:System.DirectoryServices.ActiveDirectory.DirectoryContext" /> object that specifies the context for the search.</param>
       <param name="bridgeName">A <see cref="T:System.String" /> that specifies the name of the <see cref="T:System.DirectoryServices.ActiveDirectory.ActiveDirectorySiteLinkBridge" /> object to search for.</param>
       <exception cref="T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException">In the <paramref name="context" /> parameter that was specified, the site link bridge could not be found for the given <paramref name="bridgeName" /> parameter. </exception>
       <exception cref="T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException">A call to the underlying directory service resulted in an error.</exception>
       <exception cref="T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException">The target server is either busy or unavailable.</exception>
-      <exception cref="T:System.ArgumentException">This exception will occur for any of the following reasons.The target in the <paramref name="context" /> parameter is not a forest, configuration set,  domain controller, or an AD LDS server.The <paramref name="bridgeName" /> parameter is an empty string.</exception>
+      <exception cref="T:System.ArgumentException">This exception will occur for any of the following reasons.The target in the <paramref name="context" /> parameter is not a forest, configuration set, domain controller, or an AD LDS server.The <paramref name="bridgeName" /> parameter is an empty string.</exception>
       <exception cref="T:System.ArgumentNullException">The <paramref name="context" /> or the <paramref name="bridgeName" /> parameter is null.</exception>
     </member>
     <member name="M:System.DirectoryServices.ActiveDirectory.ActiveDirectorySiteLinkBridge.FindByName(System.DirectoryServices.ActiveDirectory.DirectoryContext,System.String,System.DirectoryServices.ActiveDirectory.ActiveDirectoryTransportType)">

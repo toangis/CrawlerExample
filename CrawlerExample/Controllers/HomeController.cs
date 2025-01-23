@@ -76,6 +76,11 @@ namespace CrawlerExample.Controllers
             return View();
         }
 
+        public IActionResult Crawler()
+        {
+            return View();
+        }
+
         public IActionResult LoadData()
         {
             try

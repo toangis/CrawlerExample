@@ -8,7 +8,7 @@
       <summary>Provides a XAML-friendly implementation of a <see cref="T:System.ServiceModel.Dispatcher.MessageFilter" /> that filters on a single action.</summary>
     </member>
     <member name="M:System.ServiceModel.CorrelationActionMessageFilter.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.CorrelationActionMessageFilter" /> class.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.CorrelationActionMessageFilter" /> class. </summary>
     </member>
     <member name="P:System.ServiceModel.CorrelationActionMessageFilter.Action">
       <summary>Gets or sets the action for the <see cref="T:System.ServiceModel.CorrelationActionMessageFilter" />.</summary>
@@ -41,7 +41,7 @@
       <summary>Represents a <see cref="P:System.ServiceModel.CorrelationQuery.Where" /> clause and a <see cref="P:System.ServiceModel.CorrelationQuery.Select" /> clause that identify the unique characteristics of a message so that it can be routed to the correct instance.</summary>
     </member>
     <member name="M:System.ServiceModel.CorrelationQuery.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.CorrelationQuery" /> class.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.CorrelationQuery" /> class. </summary>
     </member>
     <member name="M:System.ServiceModel.CorrelationQuery.Equals(System.Object)">
       <summary>Determines whether the current <see cref="T:System.ServiceModel.CorrelationQuery" /> is equal to the specified object.</summary>
@@ -68,7 +68,7 @@
       <summary>Represents an endpoint declared in XAML.</summary>
     </member>
     <member name="M:System.ServiceModel.Endpoint.#ctor">
-      <summary>Creates a new instance of the <see cref="T:System.ServiceModel.Endpoint" /> class.</summary>
+      <summary>Creates a new instance of the <see cref="T:System.ServiceModel.Endpoint" /> class. </summary>
     </member>
     <member name="P:System.ServiceModel.Endpoint.AddressUri">
       <summary>Gets or sets the endpoint’s URI.</summary>
@@ -112,10 +112,10 @@
       <returns>The service contract name.</returns>
     </member>
     <member name="T:System.ServiceModel.EndpointIdentityExtension">
-      <summary>A markup extension for the <see cref="T:System.ServiceModel.EndpointIdentity" /> class.</summary>
+      <summary>A markup extension for the <see cref="T:System.ServiceModel.EndpointIdentity" /> class. </summary>
     </member>
     <member name="M:System.ServiceModel.EndpointIdentityExtension.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.EndpointIdentityExtension" /> class.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.EndpointIdentityExtension" /> class. </summary>
     </member>
     <member name="M:System.ServiceModel.EndpointIdentityExtension.#ctor(System.ServiceModel.EndpointIdentity)">
       <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.EndpointIdentityExtension" /> class with the specified <see cref="T:System.ServiceModel.EndpointIdentity" />.</summary>
@@ -142,7 +142,7 @@
       <summary>A set of <see cref="T:System.ServiceModel.MessageQuery" /> objects and an associated string parameter.  A correlation hash (<see cref="T:System.ServiceModel.InstanceKey" />) is computed from the results of the <see cref="T:System.ServiceModel.MessageQuery" /> objects as well as the associated strings.</summary>
     </member>
     <member name="M:System.ServiceModel.MessageQuerySet.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.MessageQuerySet" /> class.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.MessageQuerySet" /> class. </summary>
     </member>
     <member name="M:System.ServiceModel.MessageQuerySet.#ctor(System.ServiceModel.Dispatcher.MessageQueryTable{System.String})">
       <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.MessageQuerySet" /> class with the specified <see cref="T:System.ServiceModel.Dispatcher.MessageQueryTable`1" />.</summary>
@@ -187,7 +187,7 @@
       <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.ContextCorrelationInitializer" /> class.</summary>
     </member>
     <member name="T:System.ServiceModel.Activities.CorrelationHandle">
-      <summary>Associates activities together in a correlation by representing a particular shared <see cref="T:System.ServiceModel.Channels.InstanceKey" /> or transient context in the workflow. </summary>
+      <summary>Associates activities together in a correlation by representing a particular shared <see cref="T:System.Runtime.DurableInstancing.InstanceKey" /> or transient context in the workflow. </summary>
     </member>
     <member name="M:System.ServiceModel.Activities.CorrelationHandle.#ctor">
       <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.CorrelationHandle" /> class.</summary>
@@ -249,6 +249,24 @@
       <summary>Refers to a concrete implementation of the <see cref="T:System.Runtime.Persistence.InstanceStore" /> class such as <see cref="T:System.Activities.DurableInstancing.SqlWorkflowInstanceStore" />.</summary>
       <returns>A concrete implementation of the <see cref="T:System.Runtime.Persistence.InstanceStore" /> class.</returns>
     </member>
+    <member name="T:System.ServiceModel.Activities.HostSettings">
+      <summary>Represents settings that define operational characteristics of a host.</summary>
+    </member>
+    <member name="M:System.ServiceModel.Activities.HostSettings.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.HostSettings" /> class.</summary>
+    </member>
+    <member name="P:System.ServiceModel.Activities.HostSettings.IncludeExceptionDetailInFaults">
+      <summary>Gets or sets whether exception details are included in faults.</summary>
+      <returns>true if exception details are included in faults; otherwise, false.</returns>
+    </member>
+    <member name="P:System.ServiceModel.Activities.HostSettings.ScopeName">
+      <summary>Gets or sets the name of scope.</summary>
+      <returns>The name of scope.</returns>
+    </member>
+    <member name="P:System.ServiceModel.Activities.HostSettings.UseNoPersistHandle">
+      <summary>Gets or sets a value that indicates whether to use non-persistent handle.</summary>
+      <returns>true if non-persistent handle is used; otherwise, false.</returns>
+    </member>
     <member name="T:System.ServiceModel.Activities.InitializeCorrelation">
       <summary>Initializes correlation without sending or receiving a message.</summary>
     </member>
@@ -272,7 +290,7 @@
       <param name="activityExecutionProperties">The set of execution properties available within the workflow. </param>
     </member>
     <member name="T:System.ServiceModel.Activities.ISendMessageCallback">
-      <summary>Implements a callback that is called just before a message is sent on the wire by the <see cref="T:System.ServiceModel.Activities.Send" /> or <see cref="T:System.ServiceModel.Activities.SendParameters" /> activities. executed when a service message is sent.</summary>
+      <summary>An interface that implements a callback that is called just before a message is sent on the wire by the <see cref="T:System.ServiceModel.Activities.Send" /> or <see cref="T:System.ServiceModel.Activities.SendParameters" /> activities. </summary>
     </member>
     <member name="M:System.ServiceModel.Activities.ISendMessageCallback.OnSendMessage(System.ServiceModel.OperationContext)">
       <summary>Executed when a service message is sent.</summary>
@@ -456,6 +474,20 @@
       <summary>Resumes the specified workflow instance.</summary>
       <param name="instanceId">The GUID identifier of the workflow instance to resume.</param>
     </member>
+    <member name="T:System.ServiceModel.Activities.MessageContext">
+      <summary>Represents a message context.</summary>
+    </member>
+    <member name="M:System.ServiceModel.Activities.MessageContext.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.MessageContext" /> class.</summary>
+    </member>
+    <member name="P:System.ServiceModel.Activities.MessageContext.EndToEndTracingId">
+      <summary>Gets or sets the End-to-End tracing GUID of the message context.</summary>
+      <returns>The End-to-End tracing GUID of the message context.</returns>
+    </member>
+    <member name="P:System.ServiceModel.Activities.MessageContext.Message">
+      <summary>Gets or sets the message associated with the message context.</summary>
+      <returns>The message associated with the message context.</returns>
+    </member>
     <member name="T:System.ServiceModel.Activities.QueryCorrelationInitializer">
       <summary>Initializes the associated <see cref="P:System.ServiceModel.Activities.CorrelationInitializer.CorrelationHandle" /> based on the results of the <see cref="P:System.ServiceModel.Activities.QueryCorrelationInitializer.MessageQuerySet" /> when the message is sent or received.</summary>
     </member>
@@ -543,7 +575,7 @@
       <summary>A class used to receive a <see cref="T:System.ServiceModel.Message" /> or a message contract type within a workflow service.</summary>
     </member>
     <member name="M:System.ServiceModel.Activities.ReceiveMessageContent.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.ReceiveMessageContent" /> class.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.ReceiveMessageContent" /> class. </summary>
     </member>
     <member name="M:System.ServiceModel.Activities.ReceiveMessageContent.#ctor(System.Activities.OutArgument)">
       <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.ReceiveMessageContent" /> class with the specified message.</summary>
@@ -567,7 +599,7 @@
       <returns>true if the message should be serialized as the declared message type; otherwise false.</returns>
     </member>
     <member name="T:System.ServiceModel.Activities.ReceiveParametersContent">
-      <summary>Enables receiving data to or from a workflow service in the form of parameters.<see cref="T:System.ServiceModel.Activities.ReceiveParametersContent" /> is interoperable with regular WCF clients and services. The <see cref="P:System.ServiceModel.Activities.ReceiveParametersContent.Parameters" /> collection is similar to the argment declaration on a C# method signature.The <see cref="P:System.ServiceModel.Activities.ReceiveParametersContent.Parameters" /> collection cannot contain arguments marked with <see cref="T:System.ServiceModel.MessageContractAttribute" />, or of type <see cref="System.ServiceModel.Channels.Message" />. Please use <see cref="T:System.ServiceModel.Activities.ReceiveMessageContent" /> for these types of data.This is a sealed class.</summary>
+      <summary>Enables a workflow service to receive data n the form of parameters.<see cref="T:System.ServiceModel.Activities.ReceiveParametersContent" /> is interoperable with non-workflow WCF clients and services. The <see cref="P:System.ServiceModel.Activities.ReceiveParametersContent.Parameters" /> collection is similar to the argument declaration on a C# method signature.The <see cref="P:System.ServiceModel.Activities.ReceiveParametersContent.Parameters" /> collection cannot contain arguments marked with <see cref="T:System.ServiceModel.MessageContractAttribute" />, or of type <see cref="System.ServiceModel.Channels.Message" />. Please use <see cref="T:System.ServiceModel.Activities.ReceiveMessageContent" /> for these types of data.This is a sealed class.</summary>
     </member>
     <member name="M:System.ServiceModel.Activities.ReceiveParametersContent.#ctor">
       <summary>Creates a new instance of the <see cref="T:System.ServiceModel.Activities.ReceiveParametersContent" /> class.</summary>
@@ -578,10 +610,10 @@
     </member>
     <member name="P:System.ServiceModel.Activities.ReceiveParametersContent.Parameters">
       <summary>Modifies the parameters collection.</summary>
-      <returns>A collection of key-value pairs with the keys containing the parameter names and the values containing the arguments.</returns>
+      <returns>An ordered collection of key-value pairs with the keys containing the parameter names and the values containing the arguments.</returns>
     </member>
     <member name="T:System.ServiceModel.Activities.ReceiveReply">
-      <summary>An activity that receives a message as part of a request/reply message exchange pattern on the client side.</summary>
+      <summary>An activity that receives a message as part of a request/reply message exchange pattern.</summary>
     </member>
     <member name="M:System.ServiceModel.Activities.ReceiveReply.#ctor">
       <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.ReceiveReply" /> class.</summary>
@@ -591,7 +623,7 @@
       <returns>The action of the message.</returns>
     </member>
     <member name="P:System.ServiceModel.Activities.ReceiveReply.Content">
-      <summary>Gets or sets the content received by the T:System.ServiceModel.Activities.ReceiveReply activity</summary>
+      <summary>Gets or sets the content received by the <see cref="T:System.ServiceModel.Activities.ReceiveReply" /> activity</summary>
       <returns>The content received.</returns>
     </member>
     <member name="P:System.ServiceModel.Activities.ReceiveReply.CorrelationInitializers">
@@ -601,6 +633,24 @@
     <member name="P:System.ServiceModel.Activities.ReceiveReply.Request">
       <summary>Gets or sets a reference to the <see cref="T:System.ServiceModel.Activities.Send" /> activity paired with this <see cref="T:System.ServiceModel.Activites.ReceiveReply" /> activity.</summary>
       <returns>The send activity.</returns>
+    </member>
+    <member name="T:System.ServiceModel.Activities.ReceiveSettings">
+      <summary>Settings for an activity that receives a message.</summary>
+    </member>
+    <member name="M:System.ServiceModel.Activities.ReceiveSettings.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.ReceiveSettings" /> class.</summary>
+    </member>
+    <member name="P:System.ServiceModel.Activities.ReceiveSettings.Action">
+      <summary>Gets or sets the value of the action header of the message.</summary>
+      <returns>The action URI of the message.</returns>
+    </member>
+    <member name="P:System.ServiceModel.Activities.ReceiveSettings.CanCreateInstance">
+      <summary>Gets or sets a value that indicates whether a new workflow instance is created to process the message if the message does not correlate to an existing workflow instance.</summary>
+      <returns>true if a new workflow instance is created to process the message; otherwise, false.</returns>
+    </member>
+    <member name="P:System.ServiceModel.Activities.ReceiveSettings.OwnerDisplayName">
+      <summary>Gets or sets an optional friendly name that is used for debugging, validation, exception handling, and tracking.</summary>
+      <returns>A friendly name that is used for debugging, validation, exception handling, and tracking.</returns>
     </member>
     <member name="T:System.ServiceModel.Activities.RequestReplyCorrelationInitializer">
       <summary>Initializes the associated <see cref="P:System.ServiceModel.Activities.CorrelationInitializer.CorrelationHandle" /> based on the <see cref="T:System.ServiceModel.Channels.RequestContext" /> that is created for the two-way operation.</summary>
@@ -711,7 +761,7 @@
       <returns>The settings of the channel cache.</returns>
     </member>
     <member name="M:System.ServiceModel.Activities.SendMessageChannelCache.Dispose">
-      <summary>Releases all resources used by the current instance of the <see cref="T:System.ServiceModel.Activities.SendMessageChannelCache" /> class.</summary>
+      <summary>Releases all resources used by the current instance of the <see cref="T:System.ServiceModel.Activities.SendMessageChannelCache" /> class. </summary>
     </member>
     <member name="P:System.ServiceModel.Activities.SendMessageChannelCache.FactorySettings">
       <summary>Gets or sets the settings of the channel factory cache.</summary>
@@ -721,7 +771,7 @@
       <summary>A class used to send a single item (message) to or from a workflow service. The item can be a built-in type such as primitive types, <see cref="T:System.ServiceModel.Channels.Message" />, or <see cref="T:System.Xml.Linq.XElement" />; or an application-defined data contract, message contract, or XML serializable type.</summary>
     </member>
     <member name="M:System.ServiceModel.Activities.SendMessageContent.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.SendMessageContent" /> class.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.SendMessageContent" /> class. </summary>
     </member>
     <member name="M:System.ServiceModel.Activities.SendMessageContent.#ctor(System.Activities.InArgument)">
       <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.SendMessageContent" /> class with the specified data to send.</summary>
@@ -756,7 +806,44 @@
     </member>
     <member name="P:System.ServiceModel.Activities.SendParametersContent.Parameters">
       <summary>Gets or sets the workflow service operation parameters.</summary>
-      <returns>A collection of key-value pairs with the keys containing the parameter names and the values containing the arguments. </returns>
+      <returns>An ordered collection of key-value pairs with the keys containing the parameter names and the values containing the arguments. </returns>
+    </member>
+    <member name="T:System.ServiceModel.Activities.SendReceiveExtension">
+      <summary>An abstract class that defines extension methods for the send/receive activities.</summary>
+    </member>
+    <member name="M:System.ServiceModel.Activities.SendReceiveExtension.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.SendReceiveExtension" /> class.</summary>
+    </member>
+    <member name="M:System.ServiceModel.Activities.SendReceiveExtension.Cancel(System.Activities.Bookmark)">
+      <summary>Cancels the activity specified by the given bookmark.</summary>
+      <param name="bookmark">A bookmark at which an activity instance is to be cancelled.</param>
+    </member>
+    <member name="P:System.ServiceModel.Activities.SendReceiveExtension.HostSettings">
+      <summary>Gets the host settings of the send/receive activities.</summary>
+      <returns>The host settings of the send/receive activities.</returns>
+    </member>
+    <member name="M:System.ServiceModel.Activities.SendReceiveExtension.OnRegisterReceive(System.ServiceModel.Activities.ReceiveSettings,System.Runtime.DurableInstancing.InstanceKey,System.Activities.Bookmark)">
+      <summary>Executes upon calling RegisterReceive method.</summary>
+      <param name="settings">The settings for the receive activity.</param>
+      <param name="correlatesWith">An instance key of the activity used to correlate with the message.</param>
+      <param name="receiveBookmark">A bookmark at which the receive activity waits to receive a message.</param>
+    </member>
+    <member name="M:System.ServiceModel.Activities.SendReceiveExtension.OnUninitializeCorrelation(System.Runtime.DurableInstancing.InstanceKey)">
+      <summary>Executes when correlation handle is marked as disposed.</summary>
+      <param name="correlationKey">An instance key of the activity used to correlate with the message.</param>
+    </member>
+    <member name="M:System.ServiceModel.Activities.SendReceiveExtension.RegisterReceive(System.ServiceModel.Activities.ReceiveSettings,System.Runtime.DurableInstancing.InstanceKey,System.Activities.Bookmark)">
+      <summary>Registers the received message activity.</summary>
+      <param name="settings">The settings for the receive activity.</param>
+      <param name="correlatesWith">An instance key of the activity used to correlate with the message.</param>
+      <param name="receiveBookmark">A bookmark at which the receive activity waits to receive a message.</param>
+    </member>
+    <member name="M:System.ServiceModel.Activities.SendReceiveExtension.Send(System.ServiceModel.Activities.MessageContext,System.ServiceModel.Activities.SendSettings,System.Runtime.DurableInstancing.InstanceKey,System.Activities.Bookmark)">
+      <summary>Sends the given message.</summary>
+      <param name="message">The message to send.</param>
+      <param name="settings">The settings for send activity.</param>
+      <param name="correlatesWith">An instance key of the activity used to correlate with the message.</param>
+      <param name="sendCompleteBookmark">A bookmark at which the send activity waits for the sending completion.</param>
     </member>
     <member name="T:System.ServiceModel.Activities.SendReply">
       <summary>An activity that sends the reply message as part of a request/response message exchange pattern on the service side.</summary>
@@ -784,6 +871,44 @@
       <summary>Gets or sets a reference to the <see cref="T:System.ServiceModel.Activities.Receive" /> activity paired with this <see cref="T:System.ServiceModel.Activities.SendReply" /> activity. </summary>
       <returns>A receive activity.</returns>
     </member>
+    <member name="T:System.ServiceModel.Activities.SendSettings">
+      <summary>Settings for an activity that sends a message.</summary>
+    </member>
+    <member name="M:System.ServiceModel.Activities.SendSettings.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.SendSettings" /> class.</summary>
+    </member>
+    <member name="P:System.ServiceModel.Activities.SendSettings.Endpoint">
+      <summary>Gets or sets the endpoint to send messages to.</summary>
+      <returns>The endpoint to send messages to.</returns>
+    </member>
+    <member name="P:System.ServiceModel.Activities.SendSettings.EndpointAddress">
+      <summary>Gets or sets the address of the endpoint to send messages to.</summary>
+      <returns>The endpoint address.</returns>
+    </member>
+    <member name="P:System.ServiceModel.Activities.SendSettings.EndpointConfigurationName">
+      <summary>Gets or sets the name of the endpoint configuration.</summary>
+      <returns>The endpoint configuration name.</returns>
+    </member>
+    <member name="P:System.ServiceModel.Activities.SendSettings.IsOneWay">
+      <summary>Gets or sets a value that indicates whether communication is one-way.</summary>
+      <returns>true if communication is one-way; false if communication is two-way.</returns>
+    </member>
+    <member name="P:System.ServiceModel.Activities.SendSettings.OwnerDisplayName">
+      <summary>Gets or sets an optional friendly name that is used for debugging, validation, exception handling, and tracking.</summary>
+      <returns>A friendly name that is used for debugging, validation, exception handling, and tracking.</returns>
+    </member>
+    <member name="P:System.ServiceModel.Activities.SendSettings.ProtectionLevel">
+      <summary>Gets or sets a value that indicates the protection level for the message.</summary>
+      <returns>One of the enumeration values of the <see cref="T:System.Net.Security.ProtectionLevel" /> enumeration.</returns>
+    </member>
+    <member name="P:System.ServiceModel.Activities.SendSettings.RequirePersistBeforeSend">
+      <summary>Gets or sets a value that indicates whether the workflow service instance should be persisted before sending the message.</summary>
+      <returns>true if the workflow service should be persisted before sending the message; otherwise false.</returns>
+    </member>
+    <member name="P:System.ServiceModel.Activities.SendSettings.TokenImpersonationLevel">
+      <summary>Gets or sets a value that indicates the token impersonation level allowed for the receiver of the message.</summary>
+      <returns>One of the enumeration values of the <see cref="T:System.Security.Principal.TokenImpersonationLevel" /> enumeration.</returns>
+    </member>
     <member name="T:System.ServiceModel.Activities.SerializerOption">
       <summary>A class that represents the types of serializers available.</summary>
     </member>
@@ -794,7 +919,7 @@
       <summary>Specifies that the <see cref="T:System.Runtime.Serialization.XMLSerializer" /> should be used when serializing.</summary>
     </member>
     <member name="T:System.ServiceModel.Activities.TransactedReceiveScope">
-      <summary>An activity that enables you to flow a transaction into a workflow or dispatcher created server side transactions.</summary>
+      <summary>An activity which scopes the lifetime of a transaction which is initiated by a received message. The transaction may be flowed into the workflow on the initiating message, or be created by the dispatcher when the message is received.</summary>
     </member>
     <member name="M:System.ServiceModel.Activities.TransactedReceiveScope.#ctor">
       <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.TransactedReceiveScope" /> class.</summary>
@@ -815,7 +940,7 @@
       <summary>Allows a client to send control operations to a workflow service hosted with <see cref="T:System.ServiceModel.Activities.WorkflowServiceHost" />.</summary>
     </member>
     <member name="M:System.ServiceModel.Activities.WorkflowControlClient.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.WorkflowControlClient" /> class.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.WorkflowControlClient" /> class. </summary>
     </member>
     <member name="M:System.ServiceModel.Activities.WorkflowControlClient.#ctor(System.ServiceModel.Activities.WorkflowControlEndpoint)">
       <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.WorkflowControlClient" /> class with the specified <see cref="T:System.ServiecModel.Activities.WorkflowControlEndpoint" />.</summary>
@@ -1078,7 +1203,7 @@
       <summary>A standard endpoint that enables you to call control operations on workflow instances. </summary>
     </member>
     <member name="M:System.ServiceModel.Activities.WorkflowControlEndpoint.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.WorkflowControlEndpoint" /> class.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.WorkflowControlEndpoint" /> class. </summary>
     </member>
     <member name="M:System.ServiceModel.Activities.WorkflowControlEndpoint.#ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress)">
       <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.WorkflowControlEndpoint" /> class with the specified binding and <see cref="T:System.ServiceModel.EndpointAddress" />.</summary>
@@ -1086,10 +1211,10 @@
       <param name="address">The endpoint address.</param>
     </member>
     <member name="T:System.ServiceModel.Activities.WorkflowCreationContext">
-      <summary>Represents a context that is set up during workflow activation using the workflow hosting endpoint to handle arguments, and receive workflow completion notification.</summary>
+      <summary>Represents a context that is set up during workflow activation using the workflow hosting endpoint to handle arguments, and receive workflow completion notifications.</summary>
     </member>
     <member name="M:System.ServiceModel.Activities.WorkflowCreationContext.#ctor">
-      <summary>Initiates a new instance of the <see cref="T:System.ServiceModel.Activities.WorkflowCreationContext" /> class.</summary>
+      <summary>Initiates a new instance of the <see cref="T:System.ServiceModel.Activities.WorkflowCreationContext" /> class. </summary>
     </member>
     <member name="P:System.ServiceModel.Activities.WorkflowCreationContext.CreateOnly">
       <summary>Gets or sets a value that indicates if the workflow instance should be suspended or run after creation..</summary>
@@ -1135,7 +1260,7 @@
       <param name="address">The address of the endpoint.</param>
     </member>
     <member name="P:System.ServiceModel.Activities.WorkflowHostingEndpoint.CorrelationQueries">
-      <summary>Gets a collection of CorrelationQuery instances .</summary>
+      <summary>Gets a collection of <see cref="T:System.ServiceModel.CorrelationQuery" /> instances .</summary>
       <returns>A collection of correlation queries.</returns>
     </member>
     <member name="M:System.ServiceModel.Activities.WorkflowHostingEndpoint.OnGetCreationContext(System.Object[],System.ServiceModel.OperationContext,System.Guid,System.ServiceModel.Activities.WorkflowHostingResponseContext)">
@@ -1161,7 +1286,7 @@
       <param name="value">A value to be passed back to the workflow instance when the bookmark is resumed </param>
     </member>
     <member name="T:System.ServiceModel.Activities.WorkflowHostingResponseContext">
-      <summary>This class is used in conjunction with the <see cref="T:System.ServiceModel.Activities.WorkflowHostingEndpoint" /> class. It is used for sending the response for a request/reply contract supported by a <see cref="T:System.ServiceModel.Activities.WorkflowHostingEndpoint" /> implementation.c</summary>
+      <summary>This class is used in conjunction with the <see cref="T:System.ServiceModel.Activities.WorkflowHostingEndpoint" /> class.  It is used for sending the response for a request/reply contract supported by a <see cref="T:System.ServiceModel.Activities.WorkflowHostingEndpoint" /> implementation.</summary>
     </member>
     <member name="M:System.ServiceModel.Activities.WorkflowHostingResponseContext.SendResponse(System.Object,System.Object[])">
       <summary>Sends response to a message sent to the <see cref="T:System.ServiceModel.Activities.WorkflowHostingEndpoint" />.</summary>
@@ -1189,6 +1314,10 @@
     <member name="P:System.ServiceModel.Activities.WorkflowService.Endpoints">
       <summary>Gets the collection of endpoints of this workflow service.</summary>
       <returns>The collection of endpoints of this workflow service.</returns>
+    </member>
+    <member name="M:System.ServiceModel.Activities.WorkflowService.GetContractDescriptions">
+      <summary>Returns a dictionary of contract descriptions keyed by the contract name.</summary>
+      <returns>A dictionary of contract descriptions keyed by the contract name.</returns>
     </member>
     <member name="M:System.ServiceModel.Activities.WorkflowService.GetWorkflowRoot">
       <summary>Returns the root of the activity tree.</summary>
@@ -1276,7 +1405,7 @@
       <param name="behaviorConfigurationName">The behavior configuration name.</param>
     </member>
     <member name="M:System.ServiceModel.Activities.WorkflowServiceHost.CreateDescription(System.Collections.Generic.IDictionary{System.String,System.ServiceModel.Description.ContractDescription}@)">
-      <summary>Creates a service description of the hosted workflow service using the specified key/value pair collection of address, binding, contract and behavior service endpoint information.</summary>
+      <summary>Creates a service description of the hosted workflow service using the specified key/value pair collection of address, binding, contract and behavior service endpoint information. </summary>
       <returns>A service for the hosted workflow service.</returns>
       <param name="implementedContracts">A collection of key/value pairs that contains the contract description for the hosted workflow service.</param>
     </member>
@@ -1288,7 +1417,7 @@
       <summary>Initializes the runtime for the workflow service host.</summary>
     </member>
     <member name="M:System.ServiceModel.Activities.WorkflowServiceHost.OnAbort">
-      <summary>Aborts the workflow service host.</summary>
+      <summary>Called when  the workflow service host is aborted.</summary>
     </member>
     <member name="M:System.ServiceModel.Activities.WorkflowServiceHost.OnBeginClose(System.TimeSpan,System.AsyncCallback,System.Object)">
       <summary>Begins an asynchronous operation invoked when the workflow service host is closed.</summary>
@@ -1397,7 +1526,7 @@
       <returns>An integer representing a maximum number.</returns>
     </member>
     <member name="T:System.ServiceModel.Activities.Configuration.SendMessageChannelCacheElement">
-      <summary>Creates and maintains the sub-element that configures use of the <see cref="T:System.ServiceModel.Activities.SendMessageChannelCache" />, in the service behaviors section of a Sql workflow configuration file. This is a sealed class.</summary>
+      <summary>Creates and maintains the sub-element that configures use of the <see cref="T:System.ServiceModel.Activities.SendMessageChannelCache" />, in the service behaviors section of a workflow configuration file. This is a sealed class.</summary>
     </member>
     <member name="M:System.ServiceModel.Activities.Configuration.SendMessageChannelCacheElement.#ctor">
       <summary>Creates a  new instance of the <see cref="T:System.ServiceModel.Activities.Configuration.SendMessageChannelCacheElement" /> class.</summary>
@@ -1411,12 +1540,12 @@
       <returns>A type object.</returns>
     </member>
     <member name="P:System.ServiceModel.Activities.Configuration.SendMessageChannelCacheElement.ChannelSettings">
-      <summary>Gets or sets the settings to configure the channels that listen for incoming messages in a workflow service host.</summary>
-      <returns>A workflow configuration element that handles listener channel settings. </returns>
+      <summary>Gets or sets the settings of the channel cache.</summary>
+      <returns>The settings of the channel cache.</returns>
     </member>
     <member name="P:System.ServiceModel.Activities.Configuration.SendMessageChannelCacheElement.FactorySettings">
-      <summary>Gets or sets the settings to configure the channels that send messages in a workflow service host.</summary>
-      <returns>A workflow configuration element that handles factory channel settings. </returns>
+      <summary>Gets or sets the settings of the channel factory cache.</summary>
+      <returns>The settings of the channel factory cache.</returns>
     </member>
     <member name="T:System.ServiceModel.Activities.Configuration.SqlWorkflowInstanceStoreElement">
       <summary>Creates and maintains the <see cref="T:System.Activities.DurableInstancing.SqlWorkflowInstanceStore" /> sub-element of the service behaviors section of a Sql workflow configuration file.</summary>
@@ -1456,6 +1585,10 @@
       <summary>Gets or sets the action that occurs in response to an exception that is thrown when a workflow instance is locked.</summary>
       <returns>An action response to an exception thrown.</returns>
     </member>
+    <member name="P:System.ServiceModel.Activities.Configuration.SqlWorkflowInstanceStoreElement.MaxConnectionRetries">
+      <summary>Gets or sets the maximum number of SQL connection retries.  The default value is 4.</summary>
+      <returns>An integer representing the maximum number of SQL connection retries.</returns>
+    </member>
     <member name="P:System.ServiceModel.Activities.Configuration.SqlWorkflowInstanceStoreElement.RunnableInstancesDetectionPeriod">
       <summary>Gets or sets the <see cref="P:System.Activities.DurableInstancing.SqlWorkflowInstanceStore.RunnableInstancesDetectionPeriod" /> property. Specifies the time period after which the SQL Workflow Instance Store runs a detection task to detect any runnable or activatable workflow instances in the persistence database after the previous detection cycle. </summary>
       <returns>Returns the time interval.</returns>
@@ -1467,10 +1600,10 @@
       <summary>Creates a new instance of the <see cref="T:System.ServiceModel.Activities.Configuration.WorkflowControlEndpointCollectionElement" /> class.</summary>
     </member>
     <member name="T:System.ServiceModel.Activities.Configuration.WorkflowControlEndpointElement">
-      <summary>Defines a workflow control endpoint element for a workflow configuration file.</summary>
+      <summary>Defines a workflow control endpoint element for a workflow configuration file. </summary>
     </member>
     <member name="M:System.ServiceModel.Activities.Configuration.WorkflowControlEndpointElement.#ctor">
-      <summary>Creates a new instance of the <see cref="T:System.ServiceModel.Activities.Configuration.WorkflowControlEndpointElement" /> class.</summary>
+      <summary>Creates a new instance of the <see cref="T:System.ServiceModel.Activities.Configuration.WorkflowControlEndpointElement" /> class. </summary>
     </member>
     <member name="P:System.ServiceModel.Activities.Configuration.WorkflowControlEndpointElement.Address">
       <summary>Gets or sets the URI address for the control endpoint.</summary>
@@ -1573,7 +1706,7 @@
       <summary>A service behavior that enables your service to use buffered receive processing. </summary>
     </member>
     <member name="M:System.ServiceModel.Activities.Description.BufferedReceiveServiceBehavior.#ctor">
-      <summary>Creates a new instance of the <see cref="T:System.ServiceModel.Activities.Description.BufferedReceiveServiceBehavior" /> class.</summary>
+      <summary>Creates a new instance of the <see cref="T:System.ServiceModel.Activities.Description.BufferedReceiveServiceBehavior" /> class. </summary>
     </member>
     <member name="M:System.ServiceModel.Activities.Description.BufferedReceiveServiceBehavior.AddBindingParameters(System.ServiceModel.Description.ServiceDescription,System.ServiceModel.ServiceHostBase,System.Collections.ObjectModel.Collection{System.ServiceModel.Description.ServiceEndpoint},System.ServiceModel.Channels.BindingParameterCollection)">
       <summary>Implements the <see cref="M:System.ServiceModel.Description.IServiceBehavior.AddBindingParameters(System.ServiceModel.Description.ServiceDescription,System.ServiceModel.ServiceHostBase,System.Collections.ObjectModel.Collection{System.ServiceModel.Description.ServiceEndpoint},System.ServiceModel.Channels.BindingParameterCollection)" /> method.</summary>
@@ -1627,7 +1760,7 @@
       <summary>A service behavior that allows you to configure the <see cref="T:System.Activities.DurableInstancing.SqlWorkflowInstanceStore" /> feature, which supports persisting state information for workflow service instances into an SQL Server 2005 or SQL Server 2008 database.</summary>
     </member>
     <member name="M:System.ServiceModel.Activities.Description.SqlWorkflowInstanceStoreBehavior.#ctor">
-      <summary>Initializes an instance of the <see cref="T:System.ServiceModel.Activities.Description.SqlWorkflowInstanceStoreBehavior" /> class.</summary>
+      <summary>Initializes an instance of the <see cref="T:System.ServiceModel.Activities.Description.SqlWorkflowInstanceStoreBehavior" /> class. </summary>
     </member>
     <member name="M:System.ServiceModel.Activities.Description.SqlWorkflowInstanceStoreBehavior.#ctor(System.String)">
       <summary>Initializes an instance of the <see cref="T:System.ServiceModel.Activities.Description.SqlWorkflowInstanceStoreBehavior" /> class using the connection string passed as a parameter.</summary>
@@ -1665,6 +1798,10 @@
       <summary>Gets or sets the <see cref="P:System.Activities.DurableInstancing.SqlWorkflowInstanceStore.InstanceLockedExceptionAction" /> property. This property specifies what action a service host should take when it receives an <see cref="T:System.Runtime.Persistence.InstanceLockedException" /> when the host tries to lock an instance because the instance is currently locked by another host. </summary>
       <returns>The action a service host should take when receiving a <see cref="T:System.Runtime.Persistence.InstanceLockedException" />.</returns>
     </member>
+    <member name="P:System.ServiceModel.Activities.Description.SqlWorkflowInstanceStoreBehavior.MaxConnectionRetries">
+      <summary>Gets or sets the maximum number of SQL connection retries.  The default value is 4.</summary>
+      <returns>An integer representing the maximum number of SQL connection retries.</returns>
+    </member>
     <member name="M:System.ServiceModel.Activities.Description.SqlWorkflowInstanceStoreBehavior.Promote(System.String,System.Collections.Generic.IEnumerable{System.Xml.Linq.XName},System.Collections.Generic.IEnumerable{System.Xml.Linq.XName})">
       <summary>Promotes properties that can be used in queries. The promoted properties are the properties that you can use in queries to retrieve instances. These property can be of simple type (int32, string, bool and so on), which is represented by a variant or binary.</summary>
       <param name="name">Name of the promotion. </param>
@@ -1681,10 +1818,10 @@
       <param name="serviceHostBase">The host for the service.</param>
     </member>
     <member name="T:System.ServiceModel.Activities.Description.WorkflowContractBehaviorAttribute">
-      <summary>An attribute thatcan be applied to a service contract to enable workflow service model dispatch behavior. This attribute ensures that appropriate dispatch components are created..</summary>
+      <summary>An attribute that can be applied to a service contract to enable workflow service model dispatch behavior. This attribute ensures that appropriate dispatch components are created..</summary>
     </member>
     <member name="M:System.ServiceModel.Activities.Description.WorkflowContractBehaviorAttribute.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.Description.WorkflowContractBehaviorAttribute" /> class. </summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.Description.WorkflowContractBehaviorAttribute" /> class.  </summary>
     </member>
     <member name="M:System.ServiceModel.Activities.Description.WorkflowContractBehaviorAttribute.AddBindingParameters(System.ServiceModel.Description.ContractDescription,System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.Channels.BindingParameterCollection)">
       <summary>Configures binding elements to support the workflow contract behavior.</summary>
@@ -1744,7 +1881,7 @@
       <summary>A behavior that adds a workflow control endpoint with a fixed configuration to the service host.</summary>
     </member>
     <member name="M:System.ServiceModel.Activities.Description.WorkflowInstanceManagementBehavior.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.Description.WorkflowInstanceManagementBehavior" /> class.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.Description.WorkflowInstanceManagementBehavior" /> class. </summary>
     </member>
     <member name="M:System.ServiceModel.Activities.Description.WorkflowInstanceManagementBehavior.AddBindingParameters(System.ServiceModel.Description.ServiceDescription,System.ServiceModel.ServiceHostBase,System.Collections.ObjectModel.Collection{System.ServiceModel.Description.ServiceEndpoint},System.ServiceModel.Channels.BindingParameterCollection)">
       <summary>An implementation of the <see cref="M:System.ServiceModel.Description.IServiceBehavior.AddBindingParameters(System.ServiceModel.Description.ServiceDescription,System.ServiceModel.ServiceHostBase,System.Collections.ObjectModel.Collection{System.ServiceModel.Description.ServiceEndpoint},System.ServiceModel.Channels.BindingParameterCollection)" /> method.</summary>
@@ -2236,7 +2373,7 @@
       <typeparam name="TConfigurationElement">The type of configuration element.</typeparam>
     </member>
     <member name="M:System.ServiceModel.Activities.Tracking.Configuration.TrackingConfigurationCollection`1.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.Tracking.Configuration.TrackingConfigurationCollection`1" /> class.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.Tracking.Configuration.TrackingConfigurationCollection`1" /> class. </summary>
     </member>
     <member name="M:System.ServiceModel.Activities.Tracking.Configuration.TrackingConfigurationCollection`1.Add(`0)">
       <summary>Adds an element into the collection.</summary>
@@ -2280,7 +2417,7 @@
       <summary>The base class for tracking configuration elements.</summary>
     </member>
     <member name="M:System.ServiceModel.Activities.Tracking.Configuration.TrackingConfigurationElement.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.Tracking.Configuration.TrackingConfigurationElement" /> class.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.Tracking.Configuration.TrackingConfigurationElement" /> class. </summary>
     </member>
     <member name="P:System.ServiceModel.Activities.Tracking.Configuration.TrackingConfigurationElement.ElementKey">
       <summary>Gets a key that uniquely identifies the configuration element.</summary>
@@ -2296,7 +2433,7 @@
       <summary>A configuration element that represents a <see cref="T:System.Activities.Tracking.TrackingQuery" /> instance when specifying a tracking profile.</summary>
     </member>
     <member name="M:System.ServiceModel.Activities.Tracking.Configuration.TrackingQueryElement.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.Tracking.Configuration.TrackingQueryElement" /> class.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.Tracking.Configuration.TrackingQueryElement" /> class. </summary>
     </member>
     <member name="P:System.ServiceModel.Activities.Tracking.Configuration.TrackingQueryElement.Annotations">
       <summary>Gets a collection of annotations associated with the <see cref="T:System.ServiceModel.Activities.Tracking.Configuration.TrackingQueryElement" />.</summary>
@@ -2389,10 +2526,10 @@
       <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Activities.Tracking.Configuration.WorkflowInstanceQueryElementCollection" /> class.</summary>
     </member>
     <member name="T:System.ServiceModel.XamlIntegration.EndpointIdentityConverter">
-      <summary>Converts an <see cref="T:System.ServiceModel.EndpointIdentity" /> instance to the specified type.</summary>
+      <summary>Converts an <see cref="T:System.ServiceModel.EndpointIdentity" /> instance to the specified type. </summary>
     </member>
     <member name="M:System.ServiceModel.XamlIntegration.EndpointIdentityConverter.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.XamlIntegration.EndpointIdentityConverter" /> class.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.XamlIntegration.EndpointIdentityConverter" /> class. </summary>
     </member>
     <member name="M:System.ServiceModel.XamlIntegration.EndpointIdentityConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
       <summary>Gets a value that determines whether the converter can convert an <see cref="T:System.ServiceModel.EndpointIdentity" /> instance to the specified type.</summary>
@@ -2412,10 +2549,10 @@
       <summary>A WCF-specific implementation of a <see cref="T:System.Xml.Linq.XName" /> type converter that does not require <see cref="T:System.Xml.Linq.XName" /> instances to specify a namespace.</summary>
     </member>
     <member name="M:System.ServiceModel.XamlIntegration.ServiceXNameTypeConverter.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.XamlIntegration.ServiceXNameTypeConverter" /> class.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.XamlIntegration.ServiceXNameTypeConverter" /> class. </summary>
     </member>
     <member name="M:System.ServiceModel.XamlIntegration.ServiceXNameTypeConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
-      <summary>Gets a value that indicates whether this converter can convert an object of one type to an <see cref="T:System.Xml.Linq.XName" />. </summary>
+      <summary>Gets a value that indicates whether this converter can convert an object of one type to an <see cref="T:System.Xml.Linq.XName" />.  </summary>
       <returns>true if the converter can perform the conversion; otherwise, false.</returns>
       <param name="context">The type descriptor context</param>
       <param name="sourceType">The type to convert from.</param>
@@ -2442,13 +2579,13 @@
       <param name="destinationType">The type to convert the value to.</param>
     </member>
     <member name="T:System.ServiceModel.XamlIntegration.SpnEndpointIdentityExtension">
-      <summary>A XAML markup extension for the <see cref="T:System.ServiceModel.SpnEndpointIdentity" /> class.</summary>
+      <summary>A XAML markup extension for the <see cref="T:System.ServiceModel.SpnEndpointIdentity" /> class.  </summary>
     </member>
     <member name="M:System.ServiceModel.XamlIntegration.SpnEndpointIdentityExtension.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.SpnEndpointIdentityExtension" /> class.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.SpnEndpointIdentityExtension" /> class. </summary>
     </member>
     <member name="M:System.ServiceModel.XamlIntegration.SpnEndpointIdentityExtension.#ctor(System.ServiceModel.SpnEndpointIdentity)">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.SpnEndpointIdentityExtension" /> class.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.SpnEndpointIdentityExtension" /> class. </summary>
       <param name="identity">The service principal name (SPN) endpoint identity.</param>
     </member>
     <member name="M:System.ServiceModel.XamlIntegration.SpnEndpointIdentityExtension.ProvideValue(System.IServiceProvider)">
@@ -2461,10 +2598,10 @@
       <returns>The service principle name.</returns>
     </member>
     <member name="T:System.ServiceModel.XamlIntegration.UpnEndpointIdentityExtension">
-      <summary>A XAML markup extension for the <see cref="T:System.ServiceModel.UpnEndpointIdentity" /> class.</summary>
+      <summary>A XAML markup extension for the <see cref="T:System.ServiceModel.UpnEndpointIdentity" /> class. </summary>
     </member>
     <member name="M:System.ServiceModel.XamlIntegration.UpnEndpointIdentityExtension.#ctor">
-      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.XamlIntegration.UpnEndpointIdentityExtension" /> class.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.XamlIntegration.UpnEndpointIdentityExtension" /> class. </summary>
     </member>
     <member name="M:System.ServiceModel.XamlIntegration.UpnEndpointIdentityExtension.#ctor(System.ServiceModel.UpnEndpointIdentity)">
       <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.XamlIntegration.UpnEndpointIdentityExtension" /> class with the specified <see cref="T:System.ServiceModel.UpnEndpointIdentity" />.</summary>

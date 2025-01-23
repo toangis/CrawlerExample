@@ -3851,14 +3851,14 @@
       <summary>Indicates whether this converter can convert an object of the given type to the type of this converter, using the specified context. </summary>
       <returns>true if the conversion can be performed; otherwise, false.</returns>
       <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that provides a format context.</param>
-      <param name="sourceType">A <see cref="T:System.Type" />  that represents the type you want to convert from.</param>
+      <param name="sourceType">A T:System.Type  that represents the type you want to convert from.</param>
     </member>
     <member name="M:System.Diagnostics.Design.LogConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
       <summary>Converts the given object to a string, using the specified context and culture information.</summary>
       <returns>An <see cref="T:System.Object" /> that represents the converted value.</returns>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" />  that provides a format context.</param>
-      <param name="culture">The <see cref="T:System.Globalization.CultureInfo" />  to use as the current culture.</param>
-      <param name="value">The <see cref="T:System.Object" />  to convert</param>
+      <param name="context">An T:System.ComponentModel.ITypeDescriptorContext  that provides a format context.</param>
+      <param name="culture">The T:System.Globalization.CultureInfo  to use as the current culture.</param>
+      <param name="value">The T:System.Object  to convert</param>
     </member>
     <member name="M:System.Diagnostics.Design.LogConverter.GetStandardValues(System.ComponentModel.ITypeDescriptorContext)">
       <summary>Gets a collection of standard values for the data type this validator is designed for.</summary>
@@ -6580,34 +6580,34 @@
     <member name="M:System.Web.UI.Design.SkinIDTypeConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
       <summary>Returns a value indicating whether this converter can convert a <see cref="P:System.Web.UI.Control.SkinID" /> object to a string using the provided format context and type.</summary>
       <returns>true, if the conversion can be made; otherwise, false.</returns>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that provides a format context for the control being designed.</param>
+      <param name="context">An T:System.ComponentModel.ITypeDescriptorContext that provides a format context for the control being designed.</param>
       <param name="sourceType">A <see cref="T:System.Type" />.</param>
     </member>
     <member name="M:System.Web.UI.Design.SkinIDTypeConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
       <summary>Returns a value indicating whether this converter can convert a <see cref="P:System.Web.UI.Control.SkinID" /> object to the specified type, using the specified context.</summary>
       <returns>true, if a conversion can be made; otherwise, false.</returns>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that provides a format context for the control being designed.</param>
-      <param name="destType">A <see cref="T:System.Type" /> that represents the type to convert to.</param>
+      <param name="context">An T:System.ComponentModel.ITypeDescriptorContext that provides a format context for the control being designed.</param>
+      <param name="destType">A T:System.Type that represents the type to convert to.</param>
     </member>
     <member name="M:System.Web.UI.Design.SkinIDTypeConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
       <summary>Converts the given string to a <see cref="P:System.Web.UI.Control.SkinID" /> object using the specified context and culture information.</summary>
       <returns>An object that can be cast as a <see cref="P:System.Web.UI.DataSourceControl.SkinID" /> object, if the conversion can be made; otherwise, null.</returns>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that provides a format context that represents the control being designed.</param>
-      <param name="culture">A <see cref="T:System.Globalization.CultureInfo" />. If null is passed, the current culture is assumed.</param>
+      <param name="context">An T:System.ComponentModel.ITypeDescriptorContext that provides a format context that represents the control being designed.</param>
+      <param name="culture">A T:System.Globalization.CultureInfo. If null is passed, the current culture is assumed.</param>
       <param name="value">The string to convert.</param>
     </member>
     <member name="M:System.Web.UI.Design.SkinIDTypeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
       <summary>Converts the given <see cref="P:System.Web.UI.Control.SkinID" /> object to a string using the specified context and culture information.</summary>
       <returns>An object that represents the converted value.</returns>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that provides a format context that represents the control being designed.</param>
-      <param name="culture">A <see cref="T:System.Globalization.CultureInfo" />. If null, the current culture is assumed. </param>
+      <param name="context">An T:System.ComponentModel.ITypeDescriptorContext that provides a format context that represents the control being designed.</param>
+      <param name="culture">A T:System.Globalization.CultureInfo. If null, the current culture is assumed. </param>
       <param name="value">The <see cref="P:System.Web.UI.Control.SkinID" /> object to convert.</param>
-      <param name="destinationType">The <see cref="T:System.Type" /> to convert <paramref name="value" /> to (must be a <see cref="T:System.String" />). </param>
+      <param name="destinationType">The T:System.Type to convert <paramref name="value" /> to (must be a <see cref="T:System.String" />). </param>
     </member>
     <member name="M:System.Web.UI.Design.SkinIDTypeConverter.GetStandardValues(System.ComponentModel.ITypeDescriptorContext)">
       <summary>Returns a set of <see cref="P:System.Web.UI.Control.SkinID" /> objects that can be applied to the control that is represented by the given format context.</summary>
       <returns>A <see cref="T:System.ComponentModel.TypeConverter.StandardValuesCollection" /> that holds a set of <see cref="P:System.Web.UI.Control.SkinID" /> objects; otherwise, null, if the control does not support skins.</returns>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that provides a format context that represents the control being designed. <paramref name="context" /> or properties of <paramref name="context" /> can be null.</param>
+      <param name="context">An T:System.ComponentModel.ITypeDescriptorContext that provides a format context that represents the control being designed. <paramref name="context" /> or properties of <paramref name="context" /> can be null.</param>
     </member>
     <member name="M:System.Web.UI.Design.SkinIDTypeConverter.GetStandardValuesSupported(System.ComponentModel.ITypeDescriptorContext)">
       <summary>Returns a value indicating whether the control that is represented by the given context supports a set of <see cref="P:System.Web.UI.Control.SkinID" /> objects that can be picked from a list.</summary>
@@ -7455,7 +7455,7 @@
       <returns>HTML markup for a control and exception information.</returns>
       <param name="control">The control that raised the exception.-or- null.</param>
       <param name="e">The exception. -or-null.</param>
-      <param name="errorMessage">A message to add to the exception message.-or- An empty string (“”).</param>
+      <param name="errorMessage">A message to add to the exception message.-or- An empty string ("").</param>
     </member>
     <member name="M:System.Web.UI.Design.WebFormsRootDesigner.GetClientScriptsInDocument">
       <summary>When overridden in a derived class, returns a <see cref="T:System.Web.UI.Design.ClientScriptItemCollection" />  object that contains all client script items that are on the page.</summary>
