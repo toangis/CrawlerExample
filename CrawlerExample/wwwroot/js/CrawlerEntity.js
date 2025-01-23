@@ -74,7 +74,7 @@
                     alert('Tiêu đề của Question: ' + data[0].Title);
                 },
                 failure: function (response) {
-                    alert("Đã có lỗi: " + response.responseText);
+                    alert("Đã có lỗi với dữ liệu crawler: " + response.responseText);
                 },
                 error: function (err) {
                     alert("Đã có lỗi xảy ra " + err.statusText);
