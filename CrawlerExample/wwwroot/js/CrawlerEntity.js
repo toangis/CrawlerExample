@@ -68,10 +68,10 @@
                 url: "/Home/GetQuestionEntity",
                 type: 'GET',
                 datatype: 'json',
-                success: function (result) {
-                    var data = JSON.parse(result);
-                    alert(data.length);
-                    alert(data[0].Title);
+                success: function (data) {
+                    var data = JSON.parse(data);
+                    console.log(data.length);
+                    alert('Tiêu đề của Question: ' + data[0].Title);
                 },
                 failure: function (response) {
                     alert("Đã có lỗi với dữ liệu crawler: " + response.responseText);
