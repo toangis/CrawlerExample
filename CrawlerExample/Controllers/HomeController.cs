@@ -81,6 +81,11 @@ namespace CrawlerExample.Controllers
             return View();
         }
 
+        public IActionResult TableExample()
+        {
+            return View();
+        }
+
         public IActionResult LoadData()
         {
             try
