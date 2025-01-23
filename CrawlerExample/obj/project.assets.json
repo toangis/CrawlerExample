@@ -5685,11 +5685,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\2023\\Net Core\\NET Core MVC\\CrawlerExample\\CrawlerExample\\CrawlerExample.csproj",
+      "projectUniqueName": "E:\\Temp\\Test\\CrawlerExample\\CrawlerExample\\CrawlerExample.csproj",
       "projectName": "CrawlerExample",
-      "projectPath": "E:\\2023\\Net Core\\NET Core MVC\\CrawlerExample\\CrawlerExample\\CrawlerExample.csproj",
+      "projectPath": "E:\\Temp\\Test\\CrawlerExample\\CrawlerExample\\CrawlerExample.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "E:\\2023\\Net Core\\NET Core MVC\\CrawlerExample\\CrawlerExample\\obj\\",
+      "outputPath": "E:\\Temp\\Test\\CrawlerExample\\CrawlerExample\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
