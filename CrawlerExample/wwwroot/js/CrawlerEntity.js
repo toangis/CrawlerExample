@@ -70,8 +70,8 @@
                 datatype: 'json',
                 success: function (data) {
                     var data = JSON.parse(data);
-                    alert(data.length);
-                    alert(data[0].Title);
+                    console.log(data.length);
+                    alert('Tiêu đề của Question: ' + data[0].Title);
                 },
                 failure: function (response) {
                     alert("Đã có lỗi: " + response.responseText);
