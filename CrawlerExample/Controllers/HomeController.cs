@@ -96,6 +96,11 @@ namespace CrawlerExample.Controllers
             return View();
         }
 
+        public IActionResult FormControl()
+        {
+            return View();
+        }
+
         public IActionResult LoadData()
         {
             try

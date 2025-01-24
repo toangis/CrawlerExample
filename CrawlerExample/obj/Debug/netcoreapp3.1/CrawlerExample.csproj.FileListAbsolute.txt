@@ -518,3 +518,4 @@ E:\Temp\Test\CrawlerExample\CrawlerExample\obj\Debug\netcoreapp3.1\CrawlerExampl
 E:\Temp\Test\CrawlerExample\CrawlerExample\obj\Debug\netcoreapp3.1\CrawlerExample.pdb
 E:\Temp\Test\CrawlerExample\CrawlerExample\obj\Debug\netcoreapp3.1\CrawlerExample.genruntimeconfig.cache
 E:\Temp\Test\CrawlerExample\CrawlerExample\obj\Debug\netcoreapp3.1\Razor\Views\Home\TablePagation.cshtml.g.cs
+E:\Temp\Test\CrawlerExample\CrawlerExample\obj\Debug\netcoreapp3.1\Razor\Views\Home\FormGroup.cshtml.g.cs
