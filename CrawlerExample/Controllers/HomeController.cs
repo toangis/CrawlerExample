@@ -91,6 +91,11 @@ namespace CrawlerExample.Controllers
             return View();
         }
 
+        public IActionResult FormGroup()
+        {
+            return View();
+        }
+
         public IActionResult LoadData()
         {
             try
