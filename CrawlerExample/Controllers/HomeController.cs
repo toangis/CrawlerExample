@@ -86,6 +86,11 @@ namespace CrawlerExample.Controllers
             return View();
         }
 
+        public IActionResult TablePagation()
+        {
+            return View();
+        }
+
         public IActionResult LoadData()
         {
             try
