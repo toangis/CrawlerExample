@@ -14,12 +14,10 @@ namespace CrawlerExample.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private StackContext _Stack;
 
         public HomeController(ILogger<HomeController> logger, StackContext Stack)
         {
-            _logger = logger;
             _Stack = Stack;
         }
 
